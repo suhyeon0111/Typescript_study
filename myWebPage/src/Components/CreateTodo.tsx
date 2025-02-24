@@ -1,31 +1,25 @@
-import {useState} from "react";
- 
+import React, { useState } from "react";
 
-export default function CreateTodo() {
+// TodoList에서 받아올 데이터 틀 선언
+interface InputTextProps {
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
+  onSubmit(event: React.FormEvent<HTMLFormElement>): void;
+  inputText: string;
+}
 
-          const [value, setValue] = useState("");
-          // 입력창 관리 함수
-          const onChange = (event: React.FormEvent<HTMLInputElement>)=>{
-            const{
-              currentTarget:{value},
-            } = event;
-            setValue(value);
-          };
-          // 폼 제출 함수 
-          const onSubmit = (event: React.FormEvent<HTMLFormElement>)=>{
-            event.preventDefault();
-            console.log(value);
-            setValue('');
-          }; 
+export default function CreateTodo({
+  onChange,
+  onSubmit,
+  inputText
+}: InputTextProps) {
+  return (
+    <div>
+      <form onSubmit={(event) => onSubmit(event)}>
+        <input onChange={(e) => onChange(e)} type="text" value={inputText} placeholder="입력하세요" />
+        <button type="submit">등록</button>
+      </form>
+    </div>
 
-    return (
-      <div>
-        <form onSubmit={onSubmit}>
-          <input onChange={onChange} value={value} placeholder="입력하세요"/>
-          <button>등록</button>
-        </form> 
-      </div>
-  
-    )
+  )
 }
 
