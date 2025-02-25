@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TodoItem from './TodoItem';
 import CreateTodo from './CreateTodo';
+import TodoItem from './TodoItem';
 
 // 초기 틀 설정
 interface TList {
@@ -27,7 +27,7 @@ function TodoList() {
   ]);
 
   // 입력값 변경
-  const textInputTypingHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const textTypingHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   }
   // 입력 확인
@@ -41,13 +41,17 @@ function TodoList() {
     setTodoList([...todoList, newTodo]);
     setInputText("");
   }
+  // 삭제 함수
+  const textDeleteHandler = (id: number) => {
+    setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
+  };
 
   return (
     <div>
-      <CreateTodo onChange={textInputTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
+      <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
       <div className='App'>
         {todoList.map((item) => (
-          <TodoItem key={item.id} text={item.text} completed={item.completed} />
+          <TodoItem id={item.id} text={item.text} completed={item.completed} onClickDelete={textDeleteHandler} />
         ))}
       </div>
     </div>
