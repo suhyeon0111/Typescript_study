@@ -20,6 +20,7 @@ export default function TodoItem({
     // 수정 여부
     const [isUpdating, setIsUpdating] = useState<boolean>(false);
     const [updateText, setUpdateText] = useState<string>('');
+
     //실시간 수정
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUpdateText(event.target.value);
@@ -35,13 +36,25 @@ export default function TodoItem({
         onClickUpdate(updatedTodoItem);
         setIsUpdating(false);
     }
+    // todo 완료 관리 함수
+    const handleComplete = () => {
+        const updatedTodoItem = {
+            id: id,
+            text: text,
+            completed: !completed,
+        }
+        onClickUpdate(updatedTodoItem);
+    }
     return (
         <div>
             {
                 !isUpdating ? (
                     <li className='todoContainer'>
-                        {completed ? <button>완료됨</button> : <button>미완료</button>}
-                        <p> {text}</p>
+                        {/* {completed ? <button>완료됨</button> : <button>미완료</button>} */}
+                        <button onClick={handleComplete}>
+                            {completed ? "완료됨" : ""}
+                        </button>
+                        <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
                         <div>
                             <button onClick={() => setIsUpdating(true)}>수정</button>
                             <button onClick={() => onClickDelete(id)}>삭제</button>
