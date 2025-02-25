@@ -46,12 +46,31 @@ function TodoList() {
     setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
   };
 
+  // 수정 함수
+  const textUpdateHandler = (newTodo: TList): void => {
+    const newTodoList = todoList.map((item) => {
+      if (item.id === newTodo.id) {
+        return newTodo;
+      }
+      else {
+        return item;
+      }
+    })
+    // 위에서 새롭게 정의해준 리스트로 업데이트
+    setTodoList(newTodoList)
+  }
+
   return (
     <div>
       <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
       <div className='App'>
         {todoList.map((item) => (
-          <TodoItem id={item.id} text={item.text} completed={item.completed} onClickDelete={textDeleteHandler} />
+          <TodoItem
+            id={item.id}
+            text={item.text}
+            completed={item.completed}
+            onClickDelete={textDeleteHandler}
+            onClickUpdate={textUpdateHandler} />
         ))}
       </div>
     </div>
