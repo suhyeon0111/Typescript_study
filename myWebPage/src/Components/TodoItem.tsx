@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TList } from "./TodoList";
+import "./TodoStyle.css";
 
 // 초기 틀 설정 (자식 컴포넌트에도 동일하게 틀 설정해줘야 함)
 interface TodoItemProps {
@@ -56,8 +57,8 @@ export default function TodoItem({
                         </button>
                         <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
                         <div>
-                            <button onClick={() => setIsUpdating(true)}>수정</button>
-                            <button onClick={() => onClickDelete(id)}>삭제</button>
+                            <button className="Button_submit" onClick={() => setIsUpdating(true)}>수정</button>
+                            <button className="Button_submit" onClick={() => onClickDelete(id)}>삭제</button>
                         </div>
                     </li>
                 ) : (
@@ -65,8 +66,8 @@ export default function TodoItem({
                         <form onSubmit={handleFormSubmit}>
                             <input type="text" value={updateText} onChange={handleInputChange} />
                             <div>
-                                <button type="submit">확인</button>
-                                <button onClick={() => setIsUpdating(false)}>취소</button>
+                                <button className="Button_submit" type="submit">확인</button>
+                                <button className="Button_submit" onClick={() => setIsUpdating(false)}>취소</button>
                             </div>
                         </form>
                     </li>

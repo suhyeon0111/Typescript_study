@@ -61,9 +61,9 @@ function TodoList() {
   }
 
   return (
-    <div>
+    <div className='todoCreateContainer'>
       <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
-      <div className='App'>
+      <div className='todoListContainer'>
         {todoList.map((item) => (
           <TodoItem
             id={item.id}

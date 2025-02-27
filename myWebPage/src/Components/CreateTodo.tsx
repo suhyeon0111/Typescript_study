@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./TodoStyle.css";
 
 // TodoList에서 받아올 데이터 틀 선언
 interface InputTextProps {
@@ -15,8 +16,8 @@ export default function CreateTodo({
   return (
     <div>
       <form onSubmit={(event) => onSubmit(event)}>
-        <input onChange={(e) => onChange(e)} type="text" value={inputText} placeholder="입력하세요" />
-        <button type="submit">등록</button>
+        <input className="Input_create" onChange={(e) => onChange(e)} type="text" value={inputText} placeholder="입력하세요" />
+        <button type="submit" className="Button_submit">등록</button>
       </form>
     </div>
 
