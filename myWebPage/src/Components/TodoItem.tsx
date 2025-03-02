@@ -64,7 +64,7 @@ export default function TodoItem({
                 ) : (
                     <li className='todoContainer'>
                         <form onSubmit={handleFormSubmit}>
-                            <input type="text" value={updateText} onChange={handleInputChange} />
+                            <input type="text" className="Input_update" value={updateText} onChange={handleInputChange} />
                             <div>
                                 <button className="Button_submit" type="submit">확인</button>
                                 <button className="Button_submit" onClick={() => setIsUpdating(false)}>취소</button>
