@@ -52,7 +52,7 @@ export default function TodoItem({
                 !isUpdating ? (
                     <li className='todoContainer'>
                         {/* {completed ? <button>완료됨</button> : <button>미완료</button>} */}
-                        <button onClick={handleComplete}>
+                        <button className="Button_complete" onClick={handleComplete}>
                             {completed ? "완료됨" : ""}
                         </button>
                         <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
