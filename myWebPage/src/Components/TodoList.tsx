@@ -61,7 +61,7 @@ function TodoList() {
   }
 
   return (
-    <div className='todoCreateContainer'>
+    <div className='Container'>
       <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
       <div className='todoListContainer'>
         {todoList.map((item) => (

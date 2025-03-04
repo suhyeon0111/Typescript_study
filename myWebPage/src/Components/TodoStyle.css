@@ -1,5 +1,5 @@
 .Button_submit {
-    margin: 1rem;
+    margin: 0 1rem 0 0;
 }
 
 .Input_create{
@@ -14,3 +14,22 @@
     width: 10rem;
     height: 2rem;
 }
+
+.Container{
+  background-color: rgb(205, 223, 239);
+}
+.todoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: bisque; */
+  }
+
+  .todoCreateContainer{
+
+  }
+  
+  .todoListContainer{
+
+  }

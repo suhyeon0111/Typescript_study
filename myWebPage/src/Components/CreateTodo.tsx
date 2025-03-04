@@ -14,7 +14,7 @@ export default function CreateTodo({
   inputText
 }: InputTextProps) {
   return (
-    <div>
+    <div className="todoCreateContainer">
       <form onSubmit={(event) => onSubmit(event)}>
         <input className="Input_create" onChange={(e) => onChange(e)} type="text" value={inputText} placeholder="입력하세요" />
         <button type="submit" className="Button_submit">등록</button>
