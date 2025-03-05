@@ -4,14 +4,15 @@
   width: 40vh;
   height: 50vh;
 }
-
+.todoListContainer{
+    height: 37vh;
+}
 .todoContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    /* background-color: bisque; */
+    width: 100%;  
   }
 .todoContainer > button {
     display: flex;
@@ -27,7 +28,12 @@
     display: flex;
     gap: 10px;
 }
-
+.todoContainer > p {
+    width: 16vw;
+    white-space: normal; /*텍스트가 넘치면 자동 줄바꿈*/
+    word-wrap: break-word;
+    /* background-color: pink; */
+}
 .todoCreateContainer{
     display: flex;
     justify-content: center;

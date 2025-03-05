@@ -9,6 +9,8 @@ interface TList {
   completed: boolean;
 }
 
+const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
+
 function TodoList() {
   // 입력값 관리
   const [inputText, setInputText] = useState("");
@@ -64,11 +66,20 @@ function TodoList() {
     setTodoList(newTodoList)
   }
 
+  // 페이지 관리
+  const [currentPage, setCurrentPage] = useState(1);
+  // 페이지함수
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const selectedItems = todoList.slice(startIndex, startIndex + itemsPerPage);
+
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(todoList.length / itemsPerPage);
+
   return (
     <div className='Container'>
       <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
       <div className='todoListContainer'>
-        {todoList.map((item) => (
+        {selectedItems.map((item) => (
           <TodoItem
             id={item.id}
             text={item.text}
@@ -76,6 +87,18 @@ function TodoList() {
             onClickDelete={textDeleteHandler}
             onClickUpdate={textUpdateHandler} />
         ))}
+      </div>
+      {/* 페이지 버튼 */}
+      <div>
+        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          이전
+        </button>
+        <span>{currentPage} / {totalPages} </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}>
+          다음
+        </button>
       </div>
     </div>
   )
