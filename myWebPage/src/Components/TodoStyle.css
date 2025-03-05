@@ -16,6 +16,10 @@
 .todoContainer > button {
     display: flex;
     margin: 0 10px 0 10px;
+    width: 3vw;
+    height: 4vh;
+    justify-content: center; /*글자 가로 중앙정렬*/
+    align-items: center; /*글자 세로 중앙정렬*/
 }
 .todoContainer > div{
     margin-left: auto;

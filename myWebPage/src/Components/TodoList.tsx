@@ -32,14 +32,18 @@ function TodoList() {
   }
   // 입력 확인
   const textInputHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const newTodo: TList = {
-      id: Date.now(),
-      text: inputText,
-      completed: false,
-    };
-    setTodoList([...todoList, newTodo]);
-    setInputText("");
+    if (!inputText.trim()) {
+      alert("입력되지 않았습니다.");
+    } else {
+      event.preventDefault();
+      const newTodo: TList = {
+        id: Date.now(),
+        text: inputText,
+        completed: false,
+      };
+      setTodoList([...todoList, newTodo]);
+      setInputText("");
+    }
   }
   // 삭제 함수
   const textDeleteHandler = (id: number) => {
