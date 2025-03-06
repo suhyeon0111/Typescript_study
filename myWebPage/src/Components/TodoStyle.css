@@ -34,6 +34,13 @@
     word-wrap: break-word;
     /* background-color: pink; */
 }
+.UpdateContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    margin-top: 7px;
+}
 .todoCreateContainer{
     display: flex;
     justify-content: center;
@@ -52,3 +59,8 @@
     height: 2rem;
 }
 
+.PageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

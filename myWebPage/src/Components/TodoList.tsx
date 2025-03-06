@@ -89,7 +89,7 @@ function TodoList() {
         ))}
       </div>
       {/* 페이지 버튼 */}
-      <div>
+      <div className='PageContainer'>
         <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
           이전
         </button>

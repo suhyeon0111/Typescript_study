@@ -20,7 +20,7 @@ export default function TodoItem({
 
     // 수정 여부
     const [isUpdating, setIsUpdating] = useState<boolean>(false);
-    const [updateText, setUpdateText] = useState<string>('');
+    const [updateText, setUpdateText] = useState<string>(text);
 
     //실시간 수정
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,17 +56,17 @@ export default function TodoItem({
                         </button>
                         <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
                         <div>
-                            <button className="Button_submit" onClick={() => setIsUpdating(true)}>수정</button>
-                            <button className="Button_submit" onClick={() => onClickDelete(id)}>삭제</button>
+                            <button onClick={() => setIsUpdating(true)}>수정</button>
+                            <button onClick={() => onClickDelete(id)}>삭제</button>
                         </div>
                     </li>
                 ) : (
                     <li className='todoContainer'>
                         <form onSubmit={handleFormSubmit}>
-                            <input type="text" className="Input_update" value={updateText} onChange={handleInputChange} />
-                            <div>
-                                <button className="Button_submit" type="submit">확인</button>
-                                <button className="Button_submit" onClick={() => setIsUpdating(false)}>취소</button>
+                            <input className="Input_update" type="text" value={updateText} onChange={handleInputChange} />
+                            <div className="UpdateContainer">
+                                <button type="submit">확인</button>
+                                <button onClick={() => setIsUpdating(false)}>취소</button>
                             </div>
                         </form>
                     </li>
