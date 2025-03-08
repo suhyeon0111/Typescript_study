@@ -55,7 +55,7 @@ export default function TodoItem({
                             {completed ? "✅" : "  "}
                         </button>
                         <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
-                        <div>
+                        <div className="todoContainerUpdate">
                             <button onClick={() => setIsUpdating(true)}>수정</button>
                             <button onClick={() => onClickDelete(id)}>삭제</button>
                         </div>

@@ -1,7 +1,7 @@
 .Container{
   background-color: rgb(205, 223, 239);
   border-radius: 10%;
-  width: 40vh;
+  width: 50vh;
   height: 50vh;
 }
 .todoListContainer{
@@ -29,11 +29,16 @@
     gap: 10px;
 }
 .todoContainer > p {
-    width: 16vw;
+    width: 10vw;
     white-space: normal; /*텍스트가 넘치면 자동 줄바꿈*/
     word-wrap: break-word;
-    /* background-color: pink; */
 }
+/* .todoContainerUpdate > button{
+    display: flex;
+    width: 4vw;
+    height: 3vh;
+    background-color: pink;
+} */
 .UpdateContainer{
     display: flex;
     justify-content: center;
