@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
+import { LuCircleUserRound } from 'react-icons/lu';
+import { useNavigate } from 'react-router-dom';
 
 // 초기 틀 설정
 interface TList {
@@ -12,6 +14,8 @@ interface TList {
 const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
 function TodoList() {
+  const navigate = useNavigate();
+
   // 입력값 관리
   const [inputText, setInputText] = useState("");
   // 가상데이터 리스트
@@ -76,30 +80,35 @@ function TodoList() {
   const totalPages = Math.ceil(todoList.length / itemsPerPage);
 
   return (
-    <div className='Container'>
-      <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
-      <div className='todoListContainer'>
-        {selectedItems.map((item) => (
-          <TodoItem
-            id={item.id}
-            text={item.text}
-            completed={item.completed}
-            onClickDelete={textDeleteHandler}
-            onClickUpdate={textUpdateHandler} />
-        ))}
+    <div className='App'>
+      <div className='Container'>
+        <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
+        <div className='todoListContainer'>
+          {selectedItems.map((item) => (
+            <TodoItem
+              id={item.id}
+              text={item.text}
+              completed={item.completed}
+              onClickDelete={textDeleteHandler}
+              onClickUpdate={textUpdateHandler} />
+          ))}
+        </div>
+        {/* 페이지 버튼 */}
+        <div className='PageContainer'>
+          <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+            이전
+          </button>
+          <span>{currentPage} / {totalPages} </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}>
+            다음
+          </button>
+        </div>
       </div>
-      {/* 페이지 버튼 */}
-      <div className='PageContainer'>
-        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
-          이전
-        </button>
-        <span>{currentPage} / {totalPages} </span>
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          disabled={currentPage === totalPages}>
-          다음
-        </button>
-      </div>
+      <button onClick={() => navigate("/register")}>
+        < LuCircleUserRound />
+      </button>
     </div>
   )
 }

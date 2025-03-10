@@ -1,13 +1,16 @@
 import './App.css'
-import TodoList from './Components/TodoList';
-import MyPage from './Components/MyPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TodoList from './Components/MainPage/TodoList';
+import RegisterPage from './Components/MyPage/RegisterPage';
 
 function App() {
   return (
-    <div className='App'>
-      <TodoList />
-      <MyPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<TodoList />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
