@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './MyPage.css';
 
-export default function MyPage() {
+export default function RegisterPage() {
     const navigate = useNavigate();
 
     const [register, setRegister] = useState({
-        name: "",
+        userName: "",
         id: "",
         password: "",
     })
@@ -15,9 +15,21 @@ export default function MyPage() {
         const { name, value } = event.target;
         setRegister((prev) => ({ ...prev, [name]: value }));
     }
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!register.name || !register.id || !register.password) {
+        // id 유효성 검사
+        const regexId = /^[a-zA-Z][a-zA-Z0-9]{4,14}$/;
+        if (!regexId.test(register.id)) {
+            alert("영어, 숫자를 포함한 5자 이상 13자 미만으로 입력해주세요.");
+        }
+        // 비밀번호 유효성 검사
+        const regexPw = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\d!@#$%^&*()]{8,15}$/;
+        if (!regexPw.test(register.password)) {
+            alert("영문, 숫자, 특수기호를 포함하여 8자 이상 16자 미만으로 입력해주세요.");
+        }
+        // 필드 입력 확인
+        if (!register.userName || !register.id || !register.password) {
             alert("모든 필드를 입력하세요");
             return;
         }
@@ -37,14 +49,14 @@ export default function MyPage() {
                             value={register.id}
                             onChange={handleInputChange}
                             placeholder="아이디" />
-                        <input type="text"
+                        <input type="password"
                             name="password"
                             value={register.password}
                             onChange={handleInputChange}
                             placeholder="비밀번호(8~16자의 영문, 숫자, 특수기호)" />
                         <input type="text"
-                            name="name"
-                            value={register.name}
+                            name="userName"
+                            value={register.userName}
                             onChange={handleInputChange}
                             placeholder="이름" />
                     </div>
