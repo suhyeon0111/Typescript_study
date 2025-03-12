@@ -16,17 +16,28 @@ export default function LoginPage() {
     }
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // id 유효성 검사
+        const regexId = /^[a-zA-Z][a-zA-Z0-9]{4,14}$/;
+        if (!regexId.test(login.id)) {
+            alert("영어, 숫자를 포함한 5자 이상 13자 미만으로 입력해주세요.");
+        }
+        // 비밀번호 유효성 검사
+        const regexPw = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\d!@#$%^&*()]{8,15}$/;
+        if (!regexPw.test(login.password)) {
+            alert("영문, 숫자, 특수기호를 포함하여 8자 이상 16자 미만으로 입력해주세요.");
+        }
+        // 필드 입력 확인
         if (!login.id || !login.password) {
             alert("모든 필드를 입력하세요");
             return;
         }
-        console.log("로그인 성공", login);
+        console.log("회원가입 성공", login);
         navigate("/");
     }
 
 
     return (
-        <div className="RegisterContainer">
+        <div className="loginContainer">
             <div>
                 <form onSubmit={handleSubmit}>
                     <h1>로그인</h1>
