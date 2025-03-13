@@ -37,7 +37,7 @@ export default function LoginPage() {
 
 
     return (
-        <div className="loginContainer">
+        <div className="RegisterContainer">
             <div>
                 <form onSubmit={handleSubmit}>
                     <h1>로그인</h1>
@@ -47,7 +47,7 @@ export default function LoginPage() {
                             value={login.id}
                             onChange={handleInputChange}
                             placeholder="아이디" />
-                        <input type="text"
+                        <input type="password"
                             name="password"
                             value={login.password}
                             onChange={handleInputChange}
