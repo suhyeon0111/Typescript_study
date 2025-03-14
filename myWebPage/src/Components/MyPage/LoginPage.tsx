@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import './MyPage.css';
+
+const API_URL = "https://localhost3001"; // 백엔드 URL
 
 export default function LoginPage() {
     const navigate = useNavigate();
-
     const [login, setLogin] = useState({
         id: "",
         password: "",
@@ -14,32 +16,36 @@ export default function LoginPage() {
         const { name, value } = event.target;
         setLogin((prev) => ({ ...prev, [name]: value }));
     }
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+    const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // id 유효성 검사
-        const regexId = /^[a-zA-Z][a-zA-Z0-9]{4,14}$/;
-        if (!regexId.test(login.id)) {
-            alert("영어, 숫자를 포함한 5자 이상 13자 미만으로 입력해주세요.");
-        }
-        // 비밀번호 유효성 검사
-        const regexPw = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\d!@#$%^&*()]{8,15}$/;
-        if (!regexPw.test(login.password)) {
-            alert("영문, 숫자, 특수기호를 포함하여 8자 이상 16자 미만으로 입력해주세요.");
-        }
         // 필드 입력 확인
         if (!login.id || !login.password) {
             alert("모든 필드를 입력하세요");
             return;
         }
-        console.log("회원가입 성공", login);
-        navigate("/");
+
+        try {
+            const response = await axios.post(
+                `${API_URL}/login?
+                id=${login.id}&password=${login.password}`
+            );
+            console.log("response >> ", response);
+        } catch (error) {
+            alert("에러 발생")
+            console.log("error>> ", error);
+        }
+
+
+        // console.log("로그인 성공", login);
+        // navigate("/");
     }
 
 
     return (
         <div className="RegisterContainer">
             <div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleLoginSubmit}>
                     <h1>로그인</h1>
                     <div>
                         <input type="text"
