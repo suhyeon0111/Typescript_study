@@ -7,6 +7,16 @@
 }
 .RegisterContainer > div {
     display: flex;
-    width: 30vw;
+    justify-content: center;
+    align-items: center;
+    width: 17vw;
     height: 40vh;
+    background-color: pink;
+}
+
+.RegisterBox > input {
+    display: flex;
+    border-radius: 1rem;
+    width: 10rem;
+    height: 2rem;
 }

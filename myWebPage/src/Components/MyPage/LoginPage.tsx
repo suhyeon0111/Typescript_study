@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './MyPage.css';
 
-const API_URL = "https://localhost3001"; // 백엔드 URL
+const API_URL = "http://localhost:3001"; // 백엔드 URL
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -26,11 +26,10 @@ export default function LoginPage() {
         }
 
         try {
-            const response = await axios.post(
-                `${API_URL}/login?
-                id=${login.id}&password=${login.password}`
+            const response = await axios.get(
+                `${API_URL}/login`
             );
-            console.log("response >> ", response);
+            console.log("response >> ", response.data);
         } catch (error) {
             alert("에러 발생")
             console.log("error>> ", error);
@@ -47,7 +46,7 @@ export default function LoginPage() {
             <div>
                 <form onSubmit={handleLoginSubmit}>
                     <h1>로그인</h1>
-                    <div>
+                    <div className="RegisterBox">
                         <input type="text"
                             name="id"
                             value={login.id}

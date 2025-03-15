@@ -43,7 +43,7 @@ export default function RegisterPage() {
             <div>
                 <form onSubmit={handleSubmit}>
                     <h1>회원가입</h1>
-                    <div>
+                    <div className="RegisterBox">
                         <input type="text"
                             name="id"
                             value={register.id}

@@ -1,25 +1,24 @@
 {
-    "login": [
-        {
-            "memName": "이수현",
-            "memId": "suhyeon",
-            "memPw": "12345678"
-        },
-        {
-            "memName": "코알라",
-            "memId": "koala",
-            "memPw": "koala1234"
-        },        
-        {
-            "memName": "캥거루",
-            "memId": "kangaroo",
-            "memPw": "kangaroo1234"
-        },        
-        {
-            "memName": "황제펭귄",
-            "memId": "penguin",
-            "memPw": "penguin1234"
-        }
-    ]
-
+  "login": [
+    {
+      "memName": "이수현",
+      "memId": "suhyeon",
+      "memPw": "12345678"
+    },
+    {
+      "memName": "코알라",
+      "memId": "koala",
+      "memPw": "koala1234"
+    },
+    {
+      "memName": "캥거루",
+      "memId": "kangaroo",
+      "memPw": "kangaroo1234"
+    },
+    {
+      "memName": "황제펭귄",
+      "memId": "penguin",
+      "memPw": "penguin1234"
+    }
+  ]
 }
