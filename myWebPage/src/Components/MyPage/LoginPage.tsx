@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import './MyPage.css';
 // import useFetch from "../../hooks/useFetch";
 
@@ -17,8 +17,6 @@ export default function LoginPage() {
         id: "",
         password: "",
     })
-    // const [success, setSuccess] = useState<boolean>(true);
-    const [userName, setUserName] = useState<string>("");
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
