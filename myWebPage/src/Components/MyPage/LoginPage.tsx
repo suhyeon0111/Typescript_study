@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import './MyPage.css';
+// import useFetch from "../../hooks/useFetch";
 
 const API_URL = "http://localhost:3001"; // 백엔드 URL
+
+interface User {
+    memId: string,
+    memPw: string,
+}
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -11,7 +17,6 @@ export default function LoginPage() {
         id: "",
         password: "",
     })
-
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setLogin((prev) => ({ ...prev, [name]: value }));
@@ -26,18 +31,23 @@ export default function LoginPage() {
         }
 
         try {
-            const response = await axios.get(
-                `${API_URL}/login`
-            );
-            console.log("response >> ", response.data);
+            const response = await axios.get(`${API_URL}/login`);
+            const responseData = response.data;
+            // console.log("response>> ", response.data);
+            // 일치하는 회원정보 찾기
+            const result = responseData.find((responseData: User) =>
+                responseData.memId === login.id && responseData.memPw === login.password);
+
+            // 일치하는 회원정보 없을 때
+            if (!result) {
+                alert("일치하는 회원정보가 없습니다.");
+            } else {
+                console.log("result.memName>>>", result.memName);  // 회원 이름
+            }
         } catch (error) {
-            alert("에러 발생")
             console.log("error>> ", error);
+            alert("로그인 에러 발생")
         }
-
-
-        // console.log("로그인 성공", login);
-        // navigate("/");
     }
 
 
