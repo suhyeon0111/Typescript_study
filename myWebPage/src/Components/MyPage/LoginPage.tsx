@@ -17,6 +17,9 @@ export default function LoginPage() {
         id: "",
         password: "",
     })
+    // const [success, setSuccess] = useState<boolean>(true);
+    const [userName, setUserName] = useState<string>("");
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setLogin((prev) => ({ ...prev, [name]: value }));
@@ -43,6 +46,7 @@ export default function LoginPage() {
                 alert("일치하는 회원정보가 없습니다.");
             } else {
                 console.log("result.memName>>>", result.memName);  // 회원 이름
+                navigate('/', { state: { userName: result.memName } });  // 회원정보 넘기기
             }
         } catch (error) {
             console.log("error>> ", error);
@@ -70,7 +74,6 @@ export default function LoginPage() {
                     </div>
                     <button type="submit">로그인</button>
                 </form>
-
             </div>
         </div>
     )

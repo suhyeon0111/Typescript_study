@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
 import { LuCircleUserRound } from 'react-icons/lu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // 초기 틀 설정
 interface TList {
@@ -15,6 +15,8 @@ const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
 function TodoList() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const userName = location.state?.userName || "Guest";
 
   // 입력값 관리
   const [inputText, setInputText] = useState("");
@@ -81,6 +83,7 @@ function TodoList() {
 
   return (
     <div className='App'>
+      <p>{userName}</p>
       <div className='Container'>
         <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
         <div className='todoListContainer'>
