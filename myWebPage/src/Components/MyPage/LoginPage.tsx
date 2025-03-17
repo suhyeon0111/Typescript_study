@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './MyPage.css';
-// import useFetch from "../../hooks/useFetch";
+
 
 const API_URL = "http://localhost:3001"; // 백엔드 URL
 
