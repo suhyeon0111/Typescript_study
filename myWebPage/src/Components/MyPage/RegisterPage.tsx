@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './MyPage.css';
+import axios from "axios";
+
+
+const API_URL = "http://localhost:3001";
 
 export default function RegisterPage() {
     const navigate = useNavigate();
@@ -16,7 +20,7 @@ export default function RegisterPage() {
         setRegister((prev) => ({ ...prev, [name]: value }));
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // id 유효성 검사
         const regexId = /^[a-zA-Z][a-zA-Z0-9]{4,14}$/;
@@ -33,8 +37,19 @@ export default function RegisterPage() {
             alert("모든 필드를 입력하세요");
             return;
         }
-        console.log("회원가입 성공", register);
-        navigate("/");
+        try {
+            const response = await axios.post(`${API_URL}/login`,
+                {
+                    memName: register.userName,
+                    memId: register.id,
+                    memPw: register.password
+                });
+            console.log("회원가입 성공 response>>>", response);
+            alert("환영합니다!");
+            // navigate("/", { state: { userName: register.userName } });
+        } catch (error) {
+            console.log("error>>> ", error);
+        }
     }
 
 

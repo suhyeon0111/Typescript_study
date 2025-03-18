@@ -83,7 +83,7 @@ function TodoList() {
 
   return (
     <div className='App'>
-      <p>{userName}</p>
+      <h2>{userName}님</h2>
       <div className='Container'>
         <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
         <div className='todoListContainer'>
