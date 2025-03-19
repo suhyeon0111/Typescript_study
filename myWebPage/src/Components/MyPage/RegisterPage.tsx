@@ -46,7 +46,7 @@ export default function RegisterPage() {
                 });
             console.log("회원가입 성공 response>>>", response);
             alert("환영합니다!");
-            // navigate("/", { state: { userName: register.userName } });
+            navigate("/", { state: { userName: register.userName } });
         } catch (error) {
             console.log("error>>> ", error);
         }
