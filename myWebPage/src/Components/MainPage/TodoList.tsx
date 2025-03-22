@@ -83,7 +83,9 @@ function TodoList() {
 
   return (
     <div className='App'>
-      <h2>{userName}님</h2>
+      <button onClick={() => navigate("/mypage")}>
+        < LuCircleUserRound />
+      </button>
       <div className='Container'>
         <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
         <div className='todoListContainer'>
@@ -109,9 +111,6 @@ function TodoList() {
           </button>
         </div>
       </div>
-      <button onClick={() => navigate("/register")}>
-        < LuCircleUserRound />
-      </button>
     </div>
   )
 }

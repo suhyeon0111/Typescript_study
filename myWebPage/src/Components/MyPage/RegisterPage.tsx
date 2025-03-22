@@ -26,11 +26,13 @@ export default function RegisterPage() {
         const regexId = /^[a-zA-Z][a-zA-Z0-9]{4,14}$/;
         if (!regexId.test(register.id)) {
             alert("영어, 숫자를 포함한 5자 이상 13자 미만으로 입력해주세요.");
+            return;
         }
         // 비밀번호 유효성 검사
         const regexPw = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\d!@#$%^&*()]{8,15}$/;
         if (!regexPw.test(register.password)) {
             alert("영문, 숫자, 특수기호를 포함하여 8자 이상 16자 미만으로 입력해주세요.");
+            return;
         }
         // 필드 입력 확인
         if (!register.userName || !register.id || !register.password) {
@@ -76,8 +78,8 @@ export default function RegisterPage() {
                             placeholder="이름" />
                     </div>
                     <button type="submit">회원가입</button>
+                    <button type="button" onClick={() => navigate('/login')}>로그인</button>
                 </form>
-
             </div>
         </div>
     )

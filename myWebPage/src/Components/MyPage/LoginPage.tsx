@@ -71,6 +71,7 @@ export default function LoginPage() {
                             placeholder="비밀번호(8~16자의 영문, 숫자, 특수기호)" />
                     </div>
                     <button type="submit">로그인</button>
+                    <button type="button" onClick={() => navigate('/register')}>회원가입</button>
                 </form>
             </div>
         </div>
