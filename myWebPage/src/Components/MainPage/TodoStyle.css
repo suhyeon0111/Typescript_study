@@ -30,23 +30,20 @@
     justify-content: center; /*글자 가로 중앙정렬*/
     align-items: center; /*글자 세로 중앙정렬*/
 }
-.todoContainer > div{
+.todoUpdateContainer {
     margin-left: auto;
     margin-right: 10px;
     display: flex;
     gap: 10px;
+}
+.todoUpdateContainer > button {
+    margin-bottom: 10px;
 }
 .todoContainer > p {
     width: 10vw;
     white-space: normal; /*텍스트가 넘치면 자동 줄바꿈*/
     word-wrap: break-word;
 }
-/* .todoContainerUpdate > button{
-    display: flex;
-    width: 4vw;
-    height: 3vh;
-    background-color: pink;
-} */
 .UpdateContainer{
     display: flex;
     justify-content: center;
@@ -54,18 +51,36 @@
     gap:10px;
     margin-top: 7px;
 }
-.todoCreateContainer{
+
+.todoCreateContainer {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+.todoCreateContainer > form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 .Input_create{
-    margin: 1rem;
-    border-radius: 1rem;
-    width: 10rem;
-    height: 2rem;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
+.Button_submit {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(40, 108, 160);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-bottom: 10px;
+}
 .Input_update{
     border-radius: 1rem;
     width: 10rem;

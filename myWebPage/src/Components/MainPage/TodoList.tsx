@@ -81,15 +81,14 @@ function TodoList() {
   // 전체 페이지 수 계산
   const totalPages = Math.ceil(todoList.length / itemsPerPage);
 
-  const onClickUserIcon = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  // user 아이콘 클릭 시 마이페이지 이동
+  const onClickIcon = () => {
     navigate('/mypage', { state: { userName: userName } })
   }
+
   return (
     <div className='App'>
-      <button onClick={onClickUserIcon}>
-        < LuCircleUserRound className='UserIcon' />
-      </button>
+      < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
         <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
         <div className='todoListContainer'>
