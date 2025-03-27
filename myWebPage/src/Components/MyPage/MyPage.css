@@ -29,3 +29,29 @@ button {
     width: 10rem;
     margin-top: 1rem
 }
+
+/* 마이페이지 */
+
+.MyPageContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+.MyPageContainer > div{
+    width: 30vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 20% 20% 20%;
+    gap: 10px;
+
+}
+
+.one{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

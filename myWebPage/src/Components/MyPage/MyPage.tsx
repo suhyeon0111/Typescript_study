@@ -14,15 +14,18 @@ export default function MyPage() {
     return (
         <div className="MyPageContainer">
             <div>
-                <LuCircleUserRound />
-                {userName}
-            </div>
-            <div>
-                <button>다크모드</button>
-            </div>
-            <div>
-                <button onClick={onClickLogout}>로그아웃</button>
+                <div className="one">
+                    <LuCircleUserRound style={{ width: "35px", height: "35px", margin: "5px" }} />
+                    <h2>{userName}</h2>
+                </div>
+                <div className="two">
+                    <button>다크모드</button>
+                </div>
+                <div className="three">
+                    <button onClick={onClickLogout}>로그아웃</button>
+                </div>
             </div>
         </div>
     )
 }
+
