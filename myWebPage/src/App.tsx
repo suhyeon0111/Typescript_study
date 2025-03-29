@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 import { useEffect } from 'react';
 
 import TodoList from './Components/MainPage/TodoList';
