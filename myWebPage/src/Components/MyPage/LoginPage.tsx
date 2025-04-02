@@ -44,7 +44,7 @@ export default function LoginPage() {
                 alert("일치하는 회원정보가 없습니다.");
             } else {
                 console.log("result.memName>>>", result.memName);  // 회원 이름
-                navigate('/mypage', { state: { userName: result.memName } });  // 회원정보 넘기기
+                navigate('/', { state: { userName: result.memName } });  // 회원정보 넘기기
             }
         } catch (error) {
             console.log("error>> ", error);
