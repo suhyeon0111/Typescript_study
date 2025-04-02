@@ -7,14 +7,12 @@ import MyPage from './Components/MyPage/MyPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<TodoList />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/mypage' element={<MyPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path='/' element={<TodoList />} />
+      <Route path='/register' element={<RegisterPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/mypage' element={<MyPage />} />
+    </Routes>
   )
 }
 
