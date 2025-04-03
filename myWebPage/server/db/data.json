@@ -1,0 +1,49 @@
+{
+  "login": [
+    {
+      "memName": "이수현",
+      "memId": "suhyeon",
+      "memPw": "12345678"
+    },
+    {
+      "memName": "코알라",
+      "memId": "koala",
+      "memPw": "koala1234"
+    },
+    {
+      "memName": "캥거루",
+      "memId": "kangaroo",
+      "memPw": "kangaroo1234"
+    },
+    {
+      "memName": "황제펭귄",
+      "memId": "penguin",
+      "memPw": "penguin1234"
+    },
+    {
+      "id": "9c29",
+      "memName": "이쑤",
+      "memId": "hello",
+      "memPw": "hello12345!!"
+    },
+    {
+      "id": "5244",
+      "memName": "이수뿡",
+      "memId": "suhy123",
+      "memPw": "suhy123~~"
+    },
+    {
+      "id": "8229",
+      "memName": "뿡",
+      "memId": "suhyeon123",
+      "memPw": "suhy"
+    }
+  ],
+  "userTodo": [
+    {
+      "memName": "이수현",
+      "todoList": ["운동", "산책"]
+    }
+
+  ]
+}
