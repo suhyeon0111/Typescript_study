@@ -1,0 +1,57 @@
+.RegisterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.RegisterContainer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17vw;
+    height: 40vh;
+    /* background-color: pink; */
+}
+
+.RegisterBox > input {
+    display: flex;
+    border-radius: 1rem;
+    width: 10rem;
+    height: 2rem;
+    margin-top: 1rem;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    margin-top: 1rem
+}
+
+/* 마이페이지 */
+
+.MyPageContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+.MyPageContainer > div{
+    width: 30vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 20% 20% 20%;
+    gap: 10px;
+
+}
+
+.one{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
