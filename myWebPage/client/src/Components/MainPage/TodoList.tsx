@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
+import Logo from './Logo';
+
 import { LuCircleUserRound } from 'react-icons/lu';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // 초기 틀 설정
-interface TList {
+export interface TList {
   id: number;
   text: string;
   completed: boolean;
@@ -34,12 +36,16 @@ function TodoList() {
   const [todoList, setTodoList] = useState<TList[]>([
     {
       id: 1,
-      text: '할 일1',
+      text: '아르바이트',
       completed: false,
     },
     {
       id: 2,
-      text: '할 일2',
+      text: '청소',
+      completed: false,
+    }, {
+      id: 3,
+      text: '운동',
       completed: false,
     }
   ]);
@@ -98,6 +104,7 @@ function TodoList() {
 
   return (
     <div className='App'>
+      <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
         <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />

@@ -1,13 +1,20 @@
 .App {
     display: flex;
-    justify-content: center; /*가로 중앙 정렬 */
-    align-items: center; /*세로 중앙 정렬 */
     width: 100vw; /*화면 전체 가로 길이*/
     height: 100vh; /*화면 전체 높이*/
   }
-  
-  .Container{
-  background-color: rgb(205, 223, 239);
+.App > button {
+    color: #6DAEDB;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    top: -45vh;
+    left: -30vw;
+    position: relative;
+}
+
+.Container{
+    background-color: #6DAEDB;
   border-radius: 10%;
   width: 50vh;
   height: 55vh;
@@ -30,6 +37,10 @@
     justify-content: center; /*글자 가로 중앙정렬*/
     align-items: center; /*글자 세로 중앙정렬*/
 }
+.todoContainer > p{
+    color: #F9F5E6;
+    font-weight: 1000;
+}
 .todoUpdateContainer {
     margin-left: auto;
     margin-right: 10px;
@@ -38,6 +49,10 @@
 }
 .todoUpdateContainer > button {
     margin-bottom: 10px;
+    width: 80px;
+    background-color: #F9F5E6;
+    color: #6DAEDB;
+    font-weight: 1000;
 }
 .todoContainer > p {
     width: 10vw;
@@ -74,8 +89,9 @@
     padding: 10px 15px;
     font-size: 16px;
     border: none;
-    background-color: rgb(40, 108, 160);
-    color: white;
+    background-color: #F9F5E6;
+    color: #6DAEDB;
+    font-weight: 1000;
     border-radius: 5px;
     cursor: pointer;
     width: 100px;
