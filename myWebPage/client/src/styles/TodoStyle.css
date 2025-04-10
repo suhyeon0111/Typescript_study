@@ -100,10 +100,15 @@
     justify-content: center;
 }
 .PageContainer > button{
-    width: 9rem;
+    width: 100px;
     margin-bottom: 10px;
     margin-right: 10px;
     margin-left: 10px;
+    color: #6DAEDB;
+}
+.PageContainer > span {
+    color: #F9F5E6;
+    font-weight: 500;
 }
 .UserIcon {
     position: absolute;
