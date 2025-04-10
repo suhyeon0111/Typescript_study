@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../../styles/MyPage.css';
-import React from "react";
+import Logo from "../MainPage/Logo";
 
 
 const API_URL = "http://localhost:3001"; // 백엔드 URL
@@ -56,6 +56,7 @@ export default function LoginPage() {
 
     return (
         <div className="RegisterContainer">
+            <Logo />
             <div>
                 <form onSubmit={handleLoginSubmit}>
                     <h1>로그인</h1>

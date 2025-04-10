@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import '../../styles/MyPage.css';
 import axios from "axios";
 import React from "react";
+import Logo from "../MainPage/Logo";
 
 
 const API_URL = "http://localhost:3001";
@@ -58,6 +59,7 @@ export default function RegisterPage() {
 
     return (
         <div className="RegisterContainer">
+            <Logo />
             <div>
                 <form onSubmit={handleSubmit}>
                     <h1>회원가입</h1>

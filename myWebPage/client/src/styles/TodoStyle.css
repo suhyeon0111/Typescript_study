@@ -3,15 +3,6 @@
     width: 100vw; /*화면 전체 가로 길이*/
     height: 100vh; /*화면 전체 높이*/
   }
-.App > button {
-    color: #6DAEDB;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    top: -45vh;
-    left: -30vw;
-    position: relative;
-}
 
 .Container{
     background-color: #6DAEDB;

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { LuCircleUserRound } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
+import Logo from "../MainPage/Logo";
 
 export default function MyPage() {
     const location = useLocation();
@@ -25,6 +26,7 @@ export default function MyPage() {
 
     return (
         <div className="MyPageContainer">
+            <Logo />
             <div>
                 <div className="one">
                     <LuCircleUserRound size={35} style={{ margin: "5px" }} />
