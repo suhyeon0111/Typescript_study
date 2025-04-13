@@ -1,0 +1,8 @@
+.menuIcon{
+    color: #6DAEDB;
+    font-weight: 500;
+    z-index: 1;
+    position: fixed;
+    top: 45px;
+    left: 30px;
+}
