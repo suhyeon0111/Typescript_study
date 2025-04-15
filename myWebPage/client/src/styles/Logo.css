@@ -4,5 +4,39 @@
     z-index: 1;
     position: fixed;
     top: 45px;
-    left: 30px;
+    left: 30px;  
+    transform: translateX(0);
+    transition: transform 0.5s ease;               
 }
+.menuIcon.open{
+    transform: translateX(100px);
+}
+.side-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+.side-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+.side-nav ul li {
+    padding: 15px 25px;
+    text-align: left; 
+}
+.side-nav ul li:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* 햄버거 아이콘 클릭 시 네비게이션 바가 나오도록 */
+.side-nav.open{
+    transform: translateX(0);
+}
+
