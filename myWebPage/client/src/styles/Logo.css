@@ -17,9 +17,9 @@
     left: 0;
     width: 200px;
     height: 100%;
-    background-color: #333;
+    background-color: #A8D0E6;
     color: white;
-    padding-top: 60px;
+    padding-top: 100px;
     transform: translateX(-100%);
     transition: transform 0.5s ease;
 }
@@ -32,7 +32,7 @@
     text-align: left; 
 }
 .side-nav ul li:hover {
-    background-color: #ddd;
+    background-color: #d4f1ff;
     color: black;
 }
 /* 햄버거 아이콘 클릭 시 네비게이션 바가 나오도록 */
