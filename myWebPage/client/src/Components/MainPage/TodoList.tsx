@@ -16,6 +16,7 @@ export interface TList {
 
 const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
+
 function TodoList() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +32,7 @@ function TodoList() {
 
 
   // 입력값 관리
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState<string>("");
   // 가상데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
     {

@@ -10,10 +10,12 @@ import MyPage from './Components/MyPage/MyPage';
 import { GlobalStyle } from './styles/GlogalStyles';
 import useThemeToggleStore from './stores/useThemeToggleStore';
 import { darkTheme, lightTheme } from './styles/Theme';
+import SettingPage from './Components/SettingPage';
+import CalendarPage from './Components/CalendarPage';
 
 
 function App() {
-  const { themeMode, setThemeMode } = useThemeToggleStore();
+  const { themeMode } = useThemeToggleStore();
 
   return (
     <>
@@ -24,6 +26,8 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/mypage' element={<MyPage />} />
+          <Route path='/setting' element={<SettingPage />} />
+          <Route path='/calendar' element={<CalendarPage />} />
         </Routes>
       </ThemeProvider>
     </>
