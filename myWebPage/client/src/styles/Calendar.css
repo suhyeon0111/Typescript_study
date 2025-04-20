@@ -17,7 +17,7 @@
   
   /* 날짜 칸 기본 스타일 */
   .react-calendar__tile {
-    height: 115px;
+    height: 115px;  
     padding: 5px;
     text-align: left;
     vertical-align: top;
@@ -31,6 +31,7 @@
     border: 1px solid #eee;
   }
   
+
   /* 날짜 숫자 */
   .react-calendar__tile abbr {
     font-weight: bold;
@@ -57,3 +58,18 @@
     color: black;
   }
   
+/* 날짜 박스 영역을 grid로 설정 */
+.react-calendar__month-view__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 요일 7개 */
+    height: 100%; /* 부모 높이 꽉 채움 */
+  }
+  
+  /* 각 행 개수에 따라 날짜 칸 높이 자동 조정 */
+  .calendar--5-rows .react-calendar__month-view__days {
+    grid-template-rows: repeat(5, 1fr);
+  }
+  
+  .calendar--6-rows .react-calendar__month-view__days {
+    grid-template-rows: repeat(6, 1fr);
+  }
