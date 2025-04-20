@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { LuCircleUserRound } from "react-icons/lu";
-import { CiLight, CiDark } from "react-icons/ci";
+// import { CiLight, CiDark } from "react-icons/ci";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import useThemeToggleStore from "../../stores/useThemeToggleStore";

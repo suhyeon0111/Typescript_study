@@ -10,8 +10,8 @@ import MyPage from './Components/MyPage/MyPage';
 import { GlobalStyle } from './styles/GlogalStyles';
 import useThemeToggleStore from './stores/useThemeToggleStore';
 import { darkTheme, lightTheme } from './styles/Theme';
-import SettingPage from './Components/SettingPage';
-import CalendarPage from './Components/CalendarPage';
+import SettingPage from './Components/SettingPage//SettingPage';
+import CalendarPage from './Components/CalendarPage/CalendarPage';
 
 
 function App() {
