@@ -7,17 +7,23 @@
 }
 
 /* 달력 전체 크기 조절 */
-.react-calendar{
-    width: 80%;
+.react-calendar {
+    width: 100%;
     max-width: 700px;
-    height: 70%;
-    max-height: 700px;
     margin: 0 auto;
 }
-  
-  /* 날짜 칸 기본 스타일 */
-  .react-calendar__tile {
-    height: 115px;  
+
+/* 달력 부모 */
+.react-calendar__month-view__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);  /* 요일 7개 */
+    grid-template-rows: repeat(6, 1fr);  /* 최대 6주 */
+    height: 100%;
+}
+
+/* 날짜 칸 기본 스타일 */
+.react-calendar__tile {
+    height: 105px;
     padding: 5px;
     text-align: left;
     vertical-align: top;
@@ -29,44 +35,44 @@
     font-size: 14px;
     border-radius: 8px;
     border: 1px solid #eee;
-  }
-  
-  /* 날짜 숫자 */
-  .react-calendar__tile abbr {
+}
+
+/* 날짜 숫자 */
+.react-calendar__tile abbr {
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 4px;
-  }
+}
   
-  /* 할 일 텍스트 예시 */
-  .react-calendar__tile .todo {
+/* 할 일 텍스트 예시 */
+.react-calendar__tile .todo {
     font-size: 12px;
     color: #666;
     margin-top: 2px;
     word-break: break-word;
-  }
+}
   
   /* 오늘 날짜 강조 */
-  .react-calendar__tile--now {
+.react-calendar__tile--now {
     background: #f0f8ff;
-  }
+}
   
   /* 선택한 날짜 강조 */
-  .react-calendar__tile--active {
+.react-calendar__tile--active {
     background: #bae6fd;
     color: black;
-  }
+}
   
 /* 달력 셀 안의 버튼 위치 */
 .schedule-marker {
     display: flex;
     justify-content: center;
     margin-top: 4px;
-  }
+}
   
-  .schedule-btn {
+.schedule-btn {
     background: transparent;
     border: none;
     cursor: pointer;
     font-size: 14px;
-  }
+}
