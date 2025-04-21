@@ -37,7 +37,7 @@ export default function CalendarPage() {
 
                         return view === 'month' && hasSchedule ? (
                             <div className="schedule-mark">
-                                <p className="schedule-p">🔔</p>
+                                <p className="schedule-p">📌</p>
                             </div>
                         ) : null;
                     }}

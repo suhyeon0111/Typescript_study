@@ -9,7 +9,7 @@
 /* 달력 전체 크기 조절 */
 .react-calendar {
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
@@ -56,15 +56,18 @@
 }
   
 /* 달력 셀 안의 버튼 위치 */
-.schedule-marker {
+.schedule-mark {
+    width: 5rem;
+    height: 30px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 4px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 4px;
+    background-color: #FFF3B0; 
 }
   
-.schedule-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
+.schedule-p {
+    font-size: 18px;
 }
