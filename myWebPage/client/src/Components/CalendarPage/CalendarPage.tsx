@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../../styles/Calendar.css";
 
 import Logo from '../MainPage/Logo';
-
+import ModalTodo from "./ModalTodo";
 
 type Value = Date | null;
 
@@ -17,11 +17,19 @@ const schedules = {
 
 export default function CalendarPage() {
     const [date, setDate] = useState<Value>(new Date());
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);  // 모달창 열림 여부 확인
 
     // 날짜를 'YYYY-MM-DD' 형식으로 포맷
     const formatDate = (date: Date) => {
         return date.toISOString().split('T')[0];
     };
+
+    // 일정 클릭 함수
+    const dayClickShowModalHandler = () => {
+        setIsModalOpen(true);
+
+        // setIsModalOpen(false);  // 다시 닫아주기
+    }
 
     return (
         <>
@@ -31,6 +39,7 @@ export default function CalendarPage() {
                     onChange={(value: Value) => setDate(value)}
                     value={date}
                     selectRange={false}
+                    onClickDay={dayClickShowModalHandler}
                     tileContent={({ date, view }) => {
                         const dateStr = formatDate(date);
                         const hasSchedule = schedules[dateStr];
@@ -42,6 +51,7 @@ export default function CalendarPage() {
                         ) : null;
                     }}
                 />
+                {isModalOpen && <ModalTodo onClose={() => setIsModalOpen(false)} />}
             </div>
         </>
     )
