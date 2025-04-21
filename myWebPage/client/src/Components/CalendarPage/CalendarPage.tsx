@@ -17,22 +17,6 @@ const schedules = {
 
 export default function CalendarPage() {
     const [date, setDate] = useState<Value>(new Date());
-    const [rowCount, setRowCount] = useState<number>(6);
-
-    const onActiveStartDateChange = ({ activeStartDate }) => {
-        const firstDay = new Date(activeStartDate);
-        const year = firstDay.getFullYear();
-        const month = firstDay.getMonth();
-
-        // 1일부터 말일까지 몇줄인지 계산   
-        const start = new Date(year, month, 1).getDay();  // 0(일)~6(토)
-        const end = new Date(year, month + 1, 0).getDate();  // 마지막 날짜
-        const totalCells = start + end;
-        const rows = Math.ceil(totalCells / 7);
-        setRowCount(rows);
-        console.log("row counting>> ", rows);
-    }
-
 
     // 날짜를 'YYYY-MM-DD' 형식으로 포맷
     const formatDate = (date: Date) => {
@@ -44,8 +28,6 @@ export default function CalendarPage() {
             <Logo />
             <div className="calendarContainer">
                 <Calendar
-                    className={`react-calendar calendar--${rowCount}-rows`}
-                    onActiveStartDateChange={onActiveStartDateChange}
                     onChange={(value: Value) => setDate(value)}
                     value={date}
                     selectRange={false}
@@ -55,7 +37,7 @@ export default function CalendarPage() {
 
                         return view === 'month' && hasSchedule ? (
                             <div className="schedule-mark">
-                                <p className="schedule-btn">🔔</p>
+                                <p className="schedule-p">🔔</p>
                             </div>
                         ) : null;
                     }}
