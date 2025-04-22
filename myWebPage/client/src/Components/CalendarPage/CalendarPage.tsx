@@ -51,7 +51,7 @@ export default function CalendarPage() {
                         ) : null;
                     }}
                 />
-                {isModalOpen && <ModalTodo onClose={() => setIsModalOpen(false)} />}
+                {isModalOpen && <ModalTodo onClose={() => setIsModalOpen(false)} onDay={date} />}
             </div>
         </>
     )

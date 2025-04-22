@@ -4,7 +4,7 @@ import "../../styles/TodoStyle.css";
 
 // 초기 틀 설정 (자식 컴포넌트에도 동일하게 틀 설정해줘야 함)
 interface TodoItemProps {
-    id: number
+    id: number;
     text: string;
     completed: boolean;
     onClickDelete(id: number): void;
