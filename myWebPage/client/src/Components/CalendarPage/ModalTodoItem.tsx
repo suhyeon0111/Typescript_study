@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ModalTList } from "./ModalTodoList";
-import "../../styles/TodoStyle.css";
 
 
 interface ModalItemProps {
