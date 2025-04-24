@@ -1,36 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 import { ModalTList } from "./ModalTodoList";
-
 
 interface ModalItemProps {
     key: number;
+    id: number;
     text: string;
     completed: boolean;
-    onClickCompletedUpdate(updateModalTodoItem: ModalTList): void;
+    onClickCompleted(updateModalTodoItem: ModalTList): void;
 }
 
 export default function ModalTodoItem({
     key,
+    id,
     text,
     completed,
-    onClickCompletedUpdate }: ModalItemProps) {
+    onClickCompleted }: ModalItemProps) {
+
+    const ListItem = styled.li`
+            list-style: none;
+            display: flex;
+        `
 
     // 완료 버튼 클릭 함수
-    const handleComplete = () => {
-        const updateModalTodoItem = {
+    const handleCompleted = () => {
+        const updatedItem = {
             key: key,
+            id: id,
             text: text,
-            completed: !completed
+            completed: !completed,
         }
-        onClickCompletedUpdate(updateModalTodoItem);
+        onClickCompleted(updatedItem);
     }
 
     return (
-        <div key={key}>
-            <button className="Button_complete" onClick={handleComplete}>
-                {completed ? "✅" : "  "}
+        <ListItem>
+            <button className="Button_complete" onClick={handleCompleted}>
+                {completed ? "✅" : " "}
             </button>
             <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
-        </div>
+        </ListItem>
     )
 }
