@@ -2,6 +2,7 @@ import React from "react";
 import { CgArrowsExpandLeft } from "react-icons/cg";
 
 import "../../styles/ModalTodo.css";
+import ModalTodoList from "./ModalTodoList";
 
 
 interface ModalProps {
@@ -20,6 +21,7 @@ export default function ModalTodo({
                 <p>{onDay.toDateString()}</p>
                 <h2>📝 일정 추가</h2>
                 <p>여기에 내용을 작성하세요!</p>
+                <ModalTodoList />
                 <button onClick={onClose}>닫기</button>
             </div>
         </div>

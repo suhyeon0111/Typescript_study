@@ -85,8 +85,7 @@ function TodoList() {
         return item;
       }
     })
-    // 위에서 새롭게 정의해준 리스트로 업데이트
-    setTodoList(newTodoList)
+    setTodoList(newTodoList)  // 위에서 새롭게 정의해준 리스트로 업데이트
   }
 
   // 페이지 관리
