@@ -3,12 +3,14 @@
     {
       "memName": "이수현",
       "memId": "suhyeon",
-      "memPw": "12345678"
+      "memPw": "12345678",
+      "todoList": [["운동", 0], ["산책", 0]]
     },
     {
       "memName": "코알라",
       "memId": "koala",
-      "memPw": "koala1234"
+      "memPw": "koala1234",
+      "todoList": [["운동", 0], ["산책", 0], ["공부", 1], ["호두랑 놀아주기", 1], ["방청소", 0]]
     },
     {
       "memName": "캥거루",
@@ -38,12 +40,5 @@
       "memId": "suhyeon123",
       "memPw": "suhy"
     }
-  ],
-  "userTodo": [
-    {
-      "memName": "이수현",
-      "todoList": ["운동", "산책"]
-    }
-
   ]
 }
