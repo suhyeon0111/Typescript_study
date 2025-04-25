@@ -22,6 +22,12 @@ export default function ModalTodoItem({
             display: flex;
         `
 
+    const CompletedBtn = styled.button`
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    `
+
     // 완료 버튼 클릭 함수
     const handleCompleted = () => {
         const updatedItem = {
@@ -35,10 +41,13 @@ export default function ModalTodoItem({
 
     return (
         <ListItem>
-            <button className="Button_complete" onClick={handleCompleted}>
+            <CompletedBtn onClick={handleCompleted}>
                 {completed ? "✅" : " "}
-            </button>
-            <p style={completed ? { textDecoration: "line-through" } : undefined}> {text}</p>
+            </CompletedBtn>
+            <p style={{
+                textDecoration: completed ? "line-through" : undefined,
+                marginTop: "25px"
+            }}> {text}</p>
         </ListItem>
     )
 }
