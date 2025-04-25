@@ -15,20 +15,37 @@ export default function ModalTodoList() {
         {
             key: 1,
             id: 1,
-            text: '아르바이트',
+            text: '테스트1',
             completed: false,
         },
         {
             key: 2,
             id: 2,
-            text: '청소',
+            text: '테스트2',
             completed: false,
         }, {
             key: 3,
             id: 3,
-            text: '운동',
+            text: '테스트3',
             completed: false,
-        }
+        },
+        {
+            key: 4,
+            id: 4,
+            text: '테스트4',
+            completed: false,
+        },
+        {
+            key: 5,
+            id: 5,
+            text: '테스트5',
+            completed: false,
+        }, {
+            key: 6,
+            id: 6,
+            text: '테스트6',
+            completed: false,
+        },
     ]);
 
     // modalTodoItem.tsx에서 전달 받은 인수 처리함수
