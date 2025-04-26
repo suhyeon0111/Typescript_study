@@ -31,30 +31,32 @@ export default function MyPage() {
 
 
     return (
-        <div className="MyPageContainer">
+        <>
             <Logo />
-            <div>
-                <div className="one">
-                    <LuCircleUserRound size={35} style={{ margin: "5px" }} />
-                    <h2>{userName}</h2>
-                </div>
-                <div className="two">
-                    <button onClick={() => setThemeMode(!themeMode)}>
-                        {themeMode ? '다크모드' : '라이트모드'}
-                    </button>
-                    {/* {!isDark ? (
+            <div className="MyPageContainer">
+                <div>
+                    <div className="one">
+                        <LuCircleUserRound size={35} style={{ margin: "5px" }} />
+                        <h2>{userName}</h2>
+                    </div>
+                    <div className="two">
+                        <button onClick={() => setThemeMode(!themeMode)}>
+                            {themeMode ? '다크모드' : '라이트모드'}
+                        </button>
+                        {/* {!isDark ? (
                         <button> <CiDark />다크모드</button>
-                    ) : (
-                        <button> <CiLight />라이트모드</button>
-                    )} */}
-                    {!isLogin ? (
-                        <button onClick={onClickLogin}>로그인</button>
-                    ) : (
-                        <button onClick={onClickLogout}>로그아웃</button>
-                    )}
+                        ) : (
+                            <button> <CiLight />라이트모드</button>
+                            )} */}
+                        {!isLogin ? (
+                            <button onClick={onClickLogin}>로그인</button>
+                        ) : (
+                            <button onClick={onClickLogout}>로그아웃</button>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
