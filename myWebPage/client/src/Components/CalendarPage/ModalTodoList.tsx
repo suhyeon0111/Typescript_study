@@ -48,6 +48,10 @@ export default function ModalTodoList() {
         },
     ]);
 
+    const [expanded, setExpanded] = useState<boolean>(false);
+
+    const visibleItems = expanded ? modalTodoList : modalTodoList.slice(0, 4);
+
     // modalTodoItem.tsx에서 전달 받은 인수 처리함수
     const textUpdatedHandler = (newModalItem: ModalTList): void => {
         const newItem = modalTodoList.map((item) => {
@@ -62,15 +66,19 @@ export default function ModalTodoList() {
 
     return (
         <div>
-            {modalTodoList.map((item) => (
+            {visibleItems.map((item) => (
                 <ModalTodoItem
                     key={item.key}
                     id={item.id}
                     text={item.text}
                     completed={item.completed}
                     onClickCompleted={textUpdatedHandler} />
-            ))
-            }
-        </div>
+            ))}
+            {modalTodoList.length > 4 && (
+                <button onClick={() => setExpanded(!expanded)} className="mt-2 text-blue-500 hover:underline">
+                    {expanded ? "접기 🔼" : "더 보기 🔽"}
+                </button>
+            )}
+        </div >
     )
 }
