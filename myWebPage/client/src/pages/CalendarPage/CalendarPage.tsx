@@ -3,8 +3,8 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../../styles/Calendar.css";
 
-import Logo from '../MainPage/Logo';
-import ModalTodo from "./ModalTodo";
+import Logo from '../../components/common/Logo';
+import ModalTodo from "../../components/Modal/ModalTodo";
 
 type Value = Date | null;
 

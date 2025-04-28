@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../../styles/MyPage.css';
-import Logo from "../MainPage/Logo";
+import Logo from "../../components/common/Logo";
 
 
 const API_URL = "http://localhost:3001"; // 백엔드 URL

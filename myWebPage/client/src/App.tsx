@@ -3,15 +3,15 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import TodoList from './Components/MainPage/TodoList';
-import RegisterPage from './Components/MyPage/RegisterPage';
-import LoginPage from './Components/MyPage/LoginPage';
-import MyPage from './Components/MyPage/MyPage';
+import TodoList from './pages/MainPage/TodoList';
+import RegisterPage from './pages/MyPage/RegisterPage';
+import LoginPage from './pages/MyPage/LoginPage';
+import MyPage from './pages/MyPage/MyPage';
 import { GlobalStyle } from './styles/GlogalStyles';
 import useThemeToggleStore from './stores/useThemeToggleStore';
 import { darkTheme, lightTheme } from './styles/Theme';
-import SettingPage from './Components/SettingPage//SettingPage';
-import CalendarPage from './Components/CalendarPage/CalendarPage';
+import SettingPage from './pages/SettingPage//SettingPage';
+import CalendarPage from './pages/CalendarPage/CalendarPage';
 
 
 function App() {

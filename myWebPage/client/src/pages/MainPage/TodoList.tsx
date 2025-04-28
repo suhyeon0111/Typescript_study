@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
-import Logo from './Logo';
+import Logo from '../../components/common/Logo';
 
 import { LuCircleUserRound } from 'react-icons/lu';
 import { useNavigate, useLocation } from 'react-router-dom';
