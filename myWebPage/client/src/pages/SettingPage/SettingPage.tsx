@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../MainPage/Logo";
+import Logo from "../../components/common/Logo";
 
 export default function SettingPage() {
     return (

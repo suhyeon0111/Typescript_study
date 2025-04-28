@@ -5,7 +5,7 @@ import { LuCircleUserRound } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import useThemeToggleStore from "../../stores/useThemeToggleStore";
-import Logo from "../MainPage/Logo";
+import Logo from "../../components/common/Logo";
 
 
 export default function MyPage() {
