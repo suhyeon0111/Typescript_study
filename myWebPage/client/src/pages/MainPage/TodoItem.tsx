@@ -31,6 +31,7 @@ export default function TodoItem({
         event.preventDefault();
         const updatedTodoItem = {
             id: id,
+            key: id,
             text: updateText,
             completed: completed,
         };
@@ -41,6 +42,7 @@ export default function TodoItem({
     const handleComplete = () => {
         const updatedTodoItem = {
             id: id,
+            key: id,
             text: text,
             completed: !completed,
         }

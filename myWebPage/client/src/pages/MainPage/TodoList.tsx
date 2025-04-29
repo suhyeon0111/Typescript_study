@@ -10,66 +10,32 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // 초기 틀 설정
 export interface TList {
   id: number;
+  key: number;
   text: string;
   completed: boolean;
 }
 
 const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
+const API = "http://localhost:3001";
 
 function TodoList() {
   const navigate = useNavigate();
   const location = useLocation();
   const userName = location.state?.userName || "Guest";
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/login")
-      .then(response => {
-        console.log("response>>> ", response.data)
-      })
-      .catch(error => { console.error(error) })
-  }, [])
+  // useEffect(() => {
+  //   axios.get("http://localhost:3001/login")
+  //     .then(response => {
+  //       console.log("response>>> ", response.data)
+  //     })
+  //     .catch(error => { console.error(error) })
+  // }, [])
 
-
-  // 입력값 관리
-  const [inputText, setInputText] = useState<string>("");
   // 가상데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
-    {
-      id: 1,
-      text: '아르바이트',
-      completed: false,
-    },
-    {
-      id: 2,
-      text: '청소',
-      completed: false,
-    }, {
-      id: 3,
-      text: '운동',
-      completed: false,
-    }
   ]);
 
-  // 입력값 변경
-  const textTypingHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-  }
-  // 입력 확인
-  const textInputHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    if (!inputText.trim()) {
-      alert("입력되지 않았습니다.");
-    } else {
-      event.preventDefault();
-      const newTodo: TList = {
-        id: Date.now(),
-        text: inputText,
-        completed: false,
-      };
-      setTodoList([...todoList, newTodo]);
-      setInputText("");
-    }
-  }
   // 삭제 함수
   const textDeleteHandler = (id: number) => {
     setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
@@ -108,11 +74,12 @@ function TodoList() {
       <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
-        <CreateTodo onChange={textTypingHandler} onSubmit={textInputHandler} inputText={inputText} />
+        <CreateTodo />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
             <TodoItem
               id={item.id}
+              key={item.key}
               text={item.text}
               completed={item.completed}
               onClickDelete={textDeleteHandler}
