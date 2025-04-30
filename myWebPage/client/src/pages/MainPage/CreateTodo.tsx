@@ -29,7 +29,11 @@ export default function CreateTodo() {
   return (
     <div className="todoCreateContainer">
       <form onSubmit={submitInputHandler}>
-        <input className="Input_create" onChange={e => setInputText(e.target.value)} type="text" placeholder="입력하세요" />
+        <input className="Input_create"
+          onChange={e => setInputText(e.target.value)}
+          value={inputText}
+          type="text"
+          placeholder="입력하세요" />
         <button type="submit" className="Button_submit">등록</button>
       </form>
     </div>
