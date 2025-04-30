@@ -2,41 +2,34 @@ import React, { useState } from "react";
 
 import "../../styles/TodoStyle.css";
 import { TList } from "./TodoList";
+import { addTodo } from "../../api/addTodo";
 
-// TodoList에서 받아올 데이터 틀 선언
-// interface InputTextProps {
-//   onSubmit(event: React.FormEvent<HTMLFormElement>): void;
-// }
 
 export default function CreateTodo() {
-
   // 입력값 관리
   const [inputText, setInputText] = useState<string>("");
 
-  // 입력 관리 함수
-  const textTypingHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-  }
-
-  const submitInputHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  // 폼 제출함수
+  const submitInputHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!inputText.trim()) {
       alert("입력되지 않았습니다.");
-    } else {
-      e.preventDefault();
-      const newTodo: TList = {
-        id: Date.now(),
-        key: Date.now(),
-        text: inputText,
-        completed: false,
-      };
+      return;
+    }
 
+    try {
+      const newTodo = await addTodo({ text: inputText, completed: false });
+      console.log("Todo added>>>>", newTodo);
+      setInputText('');
+    } catch {
+      alert("할 일 추가에 실패했습니다.");
     }
   }
 
   return (
     <div className="todoCreateContainer">
       <form onSubmit={submitInputHandler}>
-        <input className="Input_create" onChange={textTypingHandler} type="text" value={inputText} placeholder="입력하세요" />
+        <input className="Input_create" onChange={e => setInputText(e.target.value)} type="text" placeholder="입력하세요" />
         <button type="submit" className="Button_submit">등록</button>
       </form>
     </div>

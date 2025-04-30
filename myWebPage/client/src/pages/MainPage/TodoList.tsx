@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { LuCircleUserRound } from 'react-icons/lu';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
 import Logo from '../../components/common/Logo';
+import Today from '../../components/common/Today';
 
-import { LuCircleUserRound } from 'react-icons/lu';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 // 초기 틀 설정
 export interface TList {
@@ -17,20 +19,10 @@ export interface TList {
 
 const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
-const API = "http://localhost:3001";
-
 function TodoList() {
   const navigate = useNavigate();
   const location = useLocation();
   const userName = location.state?.userName || "Guest";
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:3001/login")
-  //     .then(response => {
-  //       console.log("response>>> ", response.data)
-  //     })
-  //     .catch(error => { console.error(error) })
-  // }, [])
 
   // 가상데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
@@ -74,6 +66,7 @@ function TodoList() {
       <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
+        <Today />
         <CreateTodo />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (

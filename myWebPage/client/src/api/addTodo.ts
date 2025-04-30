@@ -8,7 +8,13 @@ export interface Todo {
 
 export const addTodo = async (newTodo: Omit<Todo, 'id'>) =>{
     try{
-        const response = await axios.post<Todo>('http://localhost:3001//todos',newTodo);
+        const response = await axios.post<Todo>(
+            'http://localhost:3001//todos', newTodo,{
+
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
         return response.data;
     } catch (error) {
         console.error('Failed to add Todo', error);
