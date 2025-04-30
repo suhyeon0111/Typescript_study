@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TList } from "./TodoList";
+import { TList } from "./MainPage";
 import "../../styles/TodoStyle.css";
 
 // 초기 틀 설정 (자식 컴포넌트에도 동일하게 틀 설정해줘야 함)
@@ -31,6 +31,7 @@ export default function TodoItem({
         event.preventDefault();
         const updatedTodoItem = {
             id: id,
+            key: id,
             text: updateText,
             completed: completed,
         };
@@ -41,6 +42,7 @@ export default function TodoItem({
     const handleComplete = () => {
         const updatedTodoItem = {
             id: id,
+            key: id,
             text: text,
             completed: !completed,
         }

@@ -25,8 +25,8 @@ const addTodo = (req, res) => {
     const rawData = fs.readFileSync(dataPath, "utf8");
     const data = JSON.parse(rawData);
 
-    if (!data[date]) data[date] = [];
-    data[date].push(todo);
+    if (!data[date]) data[date] = []; // 해당 날짜가 없으면 배열로 초기화
+    data[date].push(todo); // 날짜 배열에 todo 추가
 
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
     res.status(201).json({ message: "Todo added" });

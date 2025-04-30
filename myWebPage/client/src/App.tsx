@@ -3,7 +3,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import TodoList from './pages/MainPage/TodoList';
+import MainPage from './pages/MainPage/MainPage';
 import RegisterPage from './pages/MyPage/RegisterPage';
 import LoginPage from './pages/MyPage/LoginPage';
 import MyPage from './pages/MyPage/MyPage';
@@ -22,7 +22,7 @@ function App() {
       <ThemeProvider theme={themeMode ? darkTheme : lightTheme} >
         <GlobalStyle />
         <Routes>
-          <Route path='/' element={<TodoList />} />
+          <Route path='/' element={<MainPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/mypage' element={<MyPage />} />
