@@ -19,7 +19,13 @@ export default function CreateTodo({ Tday }: { Tday: Date | null }) {
     }
 
     try {
-      const newTodo = await addTodo({ date: customDay, text: inputText, completed: false });
+      const newTodo = await addTodo(
+        {
+          date: customDay,
+          text: inputText,
+          completed: false
+        }
+      );
       console.log("Todo added>>>>", newTodo);
       setInputText('');
       console.log("Tday>>>", customDay);
