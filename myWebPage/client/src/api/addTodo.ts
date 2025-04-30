@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export interface Todo {
+    date: string;
     id: number;
     text: string;
     completed: boolean;

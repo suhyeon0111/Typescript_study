@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { LuCircleUserRound } from 'react-icons/lu';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -19,10 +18,14 @@ export interface TList {
 
 const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 
-function TodoList() {
+function MainPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const userName = location.state?.userName || "Guest";
+
+  const today = new Date();  // 현재 날짜
+  // 날짜 커스텀
+  const formattedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
   // 가상데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
@@ -66,8 +69,8 @@ function TodoList() {
       <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
-        <Today />
-        <CreateTodo />
+        <Today Tday={formattedDate} />
+        <CreateTodo Tday={formattedDate} />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
             <TodoItem
@@ -96,4 +99,4 @@ function TodoList() {
   )
 }
 
-export default TodoList;
+export default MainPage;

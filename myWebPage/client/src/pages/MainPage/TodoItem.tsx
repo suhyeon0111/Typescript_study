@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TList } from "./TodoList";
+import { TList } from "./MainPage";
 import "../../styles/TodoStyle.css";
 
 // 초기 틀 설정 (자식 컴포넌트에도 동일하게 틀 설정해줘야 함)

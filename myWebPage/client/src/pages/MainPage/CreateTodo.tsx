@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import "../../styles/TodoStyle.css";
-import { TList } from "./TodoList";
 import { addTodo } from "../../api/addTodo";
 
 
-export default function CreateTodo() {
+export default function CreateTodo({ Tday }: { Tday: Date | null }) {
+  const customDay = `${Tday?.getFullYear()}-${String(Tday?.getMonth() + 1).padStart(2, '0')}-${String(Tday?.getDate()).padStart(2, '0')}`;
+
   // 입력값 관리
   const [inputText, setInputText] = useState<string>("");
 
@@ -18,9 +19,10 @@ export default function CreateTodo() {
     }
 
     try {
-      const newTodo = await addTodo({ text: inputText, completed: false });
+      const newTodo = await addTodo({ date: customDay, text: inputText, completed: false });
       console.log("Todo added>>>>", newTodo);
       setInputText('');
+      console.log("Tday>>>", customDay);
     } catch {
       alert("할 일 추가에 실패했습니다.");
     }
