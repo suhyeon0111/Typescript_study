@@ -1,19 +1,21 @@
 import axios from 'axios';
 
+
 export interface Todo {
     date: string;
-    id: number;
+    id: string;
     text: string;
     completed: boolean;
 }
 
-export const addTodo = async (newTodo: Omit<Todo, 'id'>) =>{
+export const addTodo = async (newTodo: Todo) =>{
     try{
         const response = await axios.post<Todo>(
             'http://localhost:3001/todos', 
             {
                 date: newTodo.date, 
                 todo: {
+                    id: newTodo.id,
                     text: newTodo.text,
                     completed: newTodo.completed,
                 }

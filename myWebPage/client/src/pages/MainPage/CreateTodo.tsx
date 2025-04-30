@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 import "../../styles/TodoStyle.css";
 import { addTodo } from "../../api/addTodo";
@@ -22,6 +23,7 @@ export default function CreateTodo({ Tday }: { Tday: Date | null }) {
       const newTodo = await addTodo(
         {
           date: customDay,
+          id: uuidv4(),
           text: inputText,
           completed: false
         }
