@@ -1,11 +1,10 @@
 import React from "react";
 
 
-export default function Today({ Tday }: { Tday: Date | null }) {
-    const customDay = `${Tday?.getFullYear()}-${Tday?.getMonth()}-${Tday?.getDate()}`;
+export default function Today({ Tday }: { Tday: string }) {
     return (
         <>
-            <p>{customDay}</p>
+            <p>{Tday}</p>
         </>
     );
 }
