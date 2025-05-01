@@ -13,7 +13,6 @@ import { addTodo } from '../../api/addTodo';
 // 초기 틀 설정
 export interface TList {
   id: number;
-  key: number;
   text: string;
   completed: boolean;
 }
@@ -34,16 +33,26 @@ function MainPage() {
   ]);
 
   // 데이터 불러오기
-  // useEffect(() => {
-  //   const fetchTodos = async () => {
-  //     const response = await axios.get(`http://localhost:3001/todo/${customDay}`);
-  //     setTodoList(response.data);
-  //   };
-  //   console.log("TodoList>>>>", todoList);
-  //   fetchTodos();
-  // }, [customDay]);
+  useEffect(() => {
+    const fetchTodos = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/todos?date=${customDay}`);
+        setTodoList(response.data);
+      } catch (error) {
+        console.log("useEffect error>>>", error);
+      }
+    };
 
+    // customDay가 null이면 렌더링 방지
+    if (customDay) {
+      fetchTodos();
+    }
+  }, [customDay]);
 
+  // 확인용
+  useEffect(() => {
+    console.log("todoList>>>>", todoList);
+  }, [todoList]);
 
   // 삭제 함수
   const textDeleteHandler = (id: number) => {
@@ -88,8 +97,8 @@ function MainPage() {
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
             <TodoItem
+              key={item.id}
               id={item.id}
-              key={item.key}
               text={item.text}
               completed={item.completed}
               onClickDelete={textDeleteHandler}
