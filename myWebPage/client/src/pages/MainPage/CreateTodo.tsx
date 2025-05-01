@@ -5,8 +5,7 @@ import "../../styles/TodoStyle.css";
 import { addTodo } from "../../api/addTodo";
 
 
-export default function CreateTodo({ Tday }: { Tday: Date | null }) {
-  const customDay = `${Tday?.getFullYear()}-${String(Tday?.getMonth() + 1).padStart(2, '0')}-${String(Tday?.getDate()).padStart(2, '0')}`;
+export default function CreateTodo({ Tday }: { Tday: string }) {
 
   // 입력값 관리
   const [inputText, setInputText] = useState<string>("");
@@ -22,7 +21,7 @@ export default function CreateTodo({ Tday }: { Tday: Date | null }) {
     try {
       const newTodo = await addTodo(
         {
-          date: customDay,
+          date: Tday,
           id: uuidv4(),
           text: inputText,
           completed: false
@@ -30,7 +29,6 @@ export default function CreateTodo({ Tday }: { Tday: Date | null }) {
       );
       console.log("Todo added>>>>", newTodo);
       setInputText('');
-      console.log("Tday>>>", customDay);
     } catch {
       alert("할 일 추가에 실패했습니다.");
     }

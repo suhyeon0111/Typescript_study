@@ -73,16 +73,38 @@
   ],
   "2025-05-01": [
     {
-      "text": "하이용",
-      "completed": false
-    },
-    {
-      "text": "테스트임",
-      "completed": false
-    },
-    {
       "id": "3d8f1c8f-9cec-4a32-9231-77304312e4ea",
       "text": "테스틩ㅁ",
+      "completed": false
+    },
+    {
+      "id": "6ae356ea-c087-4fc3-99c2-2306a5ef39b1",
+      "text": "하잉",
+      "completed": false
+    },
+    {
+      "id": "8a3a1b3e-7e8d-4acf-a385-8a25a2b0314f",
+      "text": "크크",
+      "completed": false
+    },
+    {
+      "id": "bbde4d9a-1bbe-4a91-bbd1-f16601d8bb9a",
+      "text": "테스트",
+      "completed": false
+    },
+    {
+      "id": "7d80a02e-6e51-436b-89a0-6cd9f654b1b9",
+      "text": "니알",
+      "completed": false
+    },
+    {
+      "id": "8dc5bf64-94d8-4d11-870e-20f8f21a577e",
+      "text": "미ㅏㄴㅇ러",
+      "completed": false
+    },
+    {
+      "id": "b3e2ff31-7b3a-4401-89c5-e44fd2fe0cab",
+      "text": "하잉",
       "completed": false
     }
   ]

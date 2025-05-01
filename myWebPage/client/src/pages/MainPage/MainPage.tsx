@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { LuCircleUserRound } from 'react-icons/lu';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -6,12 +7,12 @@ import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
 import Logo from '../../components/common/Logo';
 import Today from '../../components/common/Today';
+import { addTodo } from '../../api/addTodo';
 
 
 // 초기 틀 설정
 export interface TList {
   id: number;
-  key: number;
   text: string;
   completed: boolean;
 }
@@ -25,11 +26,33 @@ function MainPage() {
 
   const today = new Date();  // 현재 날짜
   // 날짜 커스텀
-  const formattedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const customDay = `${today?.getFullYear()}-${String(today?.getMonth() + 1).padStart(2, '0')}-${String(today?.getDate()).padStart(2, '0')}`;
 
   // 가상데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
   ]);
+
+  // 데이터 불러오기
+  useEffect(() => {
+    const fetchTodos = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/todos?date=${customDay}`);
+        setTodoList(response.data);
+      } catch (error) {
+        console.log("useEffect error>>>", error);
+      }
+    };
+
+    // customDay가 null이면 렌더링 방지
+    if (customDay) {
+      fetchTodos();
+    }
+  }, [customDay]);
+
+  // 확인용
+  useEffect(() => {
+    console.log("todoList>>>>", todoList);
+  }, [todoList]);
 
   // 삭제 함수
   const textDeleteHandler = (id: number) => {
@@ -69,13 +92,13 @@ function MainPage() {
       <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
-        <Today Tday={formattedDate} />
-        <CreateTodo Tday={formattedDate} />
+        <Today Tday={customDay} />
+        <CreateTodo Tday={customDay} />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
             <TodoItem
+              key={item.id}
               id={item.id}
-              key={item.key}
               text={item.text}
               completed={item.completed}
               onClickDelete={textDeleteHandler}
