@@ -61,8 +61,11 @@ function MainPage() {
 
   // 삭제 함수
   const textDeleteHandler = async (id: string) => {
+    const url = `http://localhost:3001/todos/${customDay}/${id}`;
+    console.log("delete url>>>>>", url);
+
     try {
-      await axios.delete(`http://localhost:3001/todos/${customDay}/${id}`);
+      await axios.delete(url);
       console.log("삭제 성공");
       setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
     } catch (error) {
@@ -103,8 +106,8 @@ function MainPage() {
     <div className='App'>
       <Logo />
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
+      <Today Tday={customDay} />
       <div className='Container'>
-        <Today Tday={customDay} />
         <CreateTodo Tday={customDay} refreshTodos={fetchTodos} />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
