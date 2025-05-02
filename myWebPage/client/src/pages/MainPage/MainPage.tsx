@@ -57,6 +57,7 @@ function MainPage() {
   // 삭제 함수
   const textDeleteHandler = (id: number) => {
     setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
+
   };
 
   // 수정 함수
