@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getTodos,
   addTodo,
+  deleteTodo,
   updateTodo,
 } = require("../controllers/todosController");
 
@@ -12,10 +13,10 @@ router.get("/", getTodos);
 // POST /todos
 router.post("/", addTodo);
 
-// delete
-router.delete("/todos/:date/:id", deleteTodo);
+// delete /todos
+router.delete("/:date/:id", deleteTodo);
 
-// update
-router.put("todos/:date/:id", updateTodo);
+// update /todos
+router.put("/:date/:id", updateTodo);
 
 module.exports = router;
