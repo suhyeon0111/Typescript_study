@@ -61,4 +61,34 @@ const deleteTodo = (req, res) => {
   }
 };
 
-module.exports = { getTodos, addTodo, deleteTodo };
+// todo 수정하기 (text 또는 completed 변경)
+const updateTodo = (req, res) => {
+  const { date, id } = req.params;
+  const { text, completed } = req.body;
+
+  try {
+    const rawData = fs.readFileSync(dataPath, "utf8");
+    const data = JSON.parse(rawData);
+
+    if (!data[date]) {
+      return res.status(404).json({ error: "Date not found" });
+    }
+
+    const index = data[date].findIndex((todo) => todo.id === id);
+    if (index === -1) {
+      return res.status(404).json({ error: "Todo not found" });
+    }
+
+    // 값이 있을 때만 수정 (부분 수정 허용)
+    if (text !== undefined) data[date][index].text = text;
+    if (completed !== undefined) data[date][index].completed = completed;
+
+    fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+    res.status(200).json({ message: "Todo updated" });
+  } catch (error) {
+    console.error("Error updating todo:", error);
+    res.status(500).json({ error: "Failed to update todo" });
+  }
+};
+
+module.exports = { getTodos, addTodo, deleteTodo, updateTodo };
