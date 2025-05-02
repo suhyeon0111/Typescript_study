@@ -8,4 +8,7 @@ router.get("/", getTodos);
 // POST /todos
 router.post("/", addTodo);
 
+// delete
+router.delete("/todos/:date/:id", deleteTodo);
+
 module.exports = router;
