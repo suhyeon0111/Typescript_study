@@ -5,7 +5,12 @@ import "../../styles/TodoStyle.css";
 import { addTodo } from "../../api/addTodo";
 
 
-export default function CreateTodo({ Tday }: { Tday: string }) {
+export default function CreateTodo({
+  Tday,
+  refreshTodos }: {
+    Tday: string,
+    refreshTodos: () => void
+  }) {
 
   // 입력값 관리
   const [inputText, setInputText] = useState<string>("");
@@ -29,6 +34,7 @@ export default function CreateTodo({ Tday }: { Tday: string }) {
       );
       console.log("Todo added>>>>", newTodo);
       setInputText('');
+      refreshTodos();
     } catch {
       alert("할 일 추가에 실패했습니다.");
     }

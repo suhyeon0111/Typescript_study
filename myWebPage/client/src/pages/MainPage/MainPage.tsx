@@ -7,12 +7,11 @@ import CreateTodo from './CreateTodo';
 import TodoItem from './TodoItem';
 import Logo from '../../components/common/Logo';
 import Today from '../../components/common/Today';
-import { addTodo } from '../../api/addTodo';
 
 
 // 초기 틀 설정
 export interface TList {
-  id: number;
+  id: string;
   text: string;
   completed: boolean;
 }
@@ -54,10 +53,22 @@ function MainPage() {
     console.log("todoList>>>>", todoList);
   }, [todoList]);
 
-  // 삭제 함수
-  const textDeleteHandler = (id: number) => {
-    setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
+  // 비동기 요청 후 상태 동기화
+  const fetchTodos = async () => {
+    const response = await axios.get(`http://localhost:3001/todos?date=${customDay}`);
+    setTodoList(response.data);
+  }
 
+  // 삭제 함수
+  const textDeleteHandler = async (id: string) => {
+    try {
+      await axios.delete(`http://localhost:3001/todos/${customDay}/${id}`);
+      console.log("삭제 성공");
+      setTodoList(todoList.filter((TodoItem) => TodoItem.id !== id));
+    } catch (error) {
+      console.error("delete error>>>", error);
+      alert("삭제 실패");
+    }
   };
 
   // 수정 함수
@@ -94,7 +105,7 @@ function MainPage() {
       < LuCircleUserRound className='UserIcon' onClick={onClickIcon} />
       <div className='Container'>
         <Today Tday={customDay} />
-        <CreateTodo Tday={customDay} />
+        <CreateTodo Tday={customDay} refreshTodos={fetchTodos} />
         <div className='todoListContainer'>
           {selectedItems.map((item) => (
             <TodoItem

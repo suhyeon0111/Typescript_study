@@ -107,5 +107,42 @@
       "text": "하잉",
       "completed": false
     }
+  ],
+  "2025-05-02": [
+    {
+      "id": "5032e8a4-7662-48ec-92db-55f2f3121b9e",
+      "text": "테스트₩",
+      "completed": false
+    },
+    {
+      "id": "12cb23ca-8690-44d9-9b21-1eeecf4fd011",
+      "text": "테스트2",
+      "completed": false
+    },
+    {
+      "id": "2c88c463-fe15-48b3-93dd-80554034fe18",
+      "text": "테스트4",
+      "completed": false
+    },
+    {
+      "id": "661b6407-e81c-4801-8156-576b44b443cb",
+      "text": "하잉",
+      "completed": false
+    },
+    {
+      "id": "3841d4aa-2b3a-4d23-8842-79e104e8df1a",
+      "text": "오옹?",
+      "completed": false
+    },
+    {
+      "id": "1ebc4a1f-7a80-4d53-bf74-743443b83523",
+      "text": "잘되고 있는건가?",
+      "completed": false
+    },
+    {
+      "id": "1400bc71-c565-4fe2-8d0e-7a26137ee8f5",
+      "text": "비동기 후 상태동기화?",
+      "completed": false
+    }
   ]
 }
