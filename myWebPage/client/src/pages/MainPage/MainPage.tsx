@@ -59,6 +59,7 @@ function MainPage() {
     setTodoList(response.data);
   }
 
+
   // 삭제 함수
   const textDeleteHandler = async (id: string) => {
     const url = `http://localhost:3001/todos/${customDay}/${id}`;
@@ -75,17 +76,23 @@ function MainPage() {
   };
 
   // 수정 함수
-  const textUpdateHandler = (newTodo: TList): void => {
-    const newTodoList = todoList.map((item) => {
-      if (item.id === newTodo.id) {
-        return newTodo;
-      }
-      else {
-        return item;
-      }
-    })
-    setTodoList(newTodoList)  // 위에서 새롭게 정의해준 리스트로 업데이트
-  }
+  const textUpdateHandler = (newTodo: TList) => {
+    try {
+      await axios.put(`http://localhost:3001/todos/${customDay}/${newTodo.id}`. {
+        text: newTodo.text,
+        completed: newTodo.completed,
+      });
+
+      const newTodoList = todoList.map((item) =>
+        item.id === newTodo.id ? newTodo : item
+      );
+      setTodoList(newTodoList);  // 위에서 새롭게 정의해준 리스트로 업데이트
+    } catch (error) {
+      console.error("update error>>>>", error);
+      alert("수정실패");
+    }
+  };
+
 
   // 페이지 관리
   const [currentPage, setCurrentPage] = useState(1);
