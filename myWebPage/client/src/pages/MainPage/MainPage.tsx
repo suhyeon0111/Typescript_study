@@ -76,9 +76,9 @@ function MainPage() {
   };
 
   // 수정 함수
-  const textUpdateHandler = (newTodo: TList) => {
+  const textUpdateHandler = async (newTodo: TList) => {
     try {
-      await axios.put(`http://localhost:3001/todos/${customDay}/${newTodo.id}`. {
+      await axios.put(`http://localhost:3001/todos/${customDay}/${newTodo.id}`, {
         text: newTodo.text,
         completed: newTodo.completed,
       });
