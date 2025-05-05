@@ -132,13 +132,7 @@ function MainPage() {
           <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
             이전
           </button>
-          {
-            !totalPages ? (
-              <span>{currentPage} / 1 </span>
-            ) : (
-              <span>{currentPage} / {totalPages} </span>
-            )
-          }
+          <span>{currentPage} / {totalPages || 1} </span>
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}>
