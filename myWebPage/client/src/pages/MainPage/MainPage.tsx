@@ -27,7 +27,7 @@ function MainPage() {
   // 날짜 커스텀
   const customDay = `${today?.getFullYear()}-${String(today?.getMonth() + 1).padStart(2, '0')}-${String(today?.getDate()).padStart(2, '0')}`;
 
-  // 가상데이터 리스트
+  // 데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
   ]);
 
