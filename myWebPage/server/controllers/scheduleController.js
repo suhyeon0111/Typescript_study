@@ -18,5 +18,5 @@ exports.getScheduledDates = (req, res) => {
     date.startsWith(month)
   );
 
-  res.json({ datesWithSchedule });
+  res.json(datesWithSchedule);
 };
