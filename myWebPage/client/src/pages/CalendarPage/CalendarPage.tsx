@@ -7,7 +7,7 @@ import Logo from '../../components/common/Logo';
 import ModalTodo from "../../components/Modal/ModalTodo";
 import { fetchSchedulesByMonth } from "../../api/schedule";
 
-type Value = Date | null;
+type Value = Date;
 
 export default function CalendarPage() {
     const [schedules, setSchedules] = useState<string[]>([]);  // 데이터 저장
@@ -38,6 +38,8 @@ export default function CalendarPage() {
     // 일정 클릭 함수
     const dayClickShowModalHandler = () => {
         setIsModalOpen(true);
+        setDate(date);
+        console.log("click day>>> ", date);
     }
 
     return (
@@ -45,7 +47,6 @@ export default function CalendarPage() {
             <Logo />
             <div className="calendarContainer">
                 <Calendar
-                    onChange={(value: Value) => setDate(value)}
                     value={date}
                     selectRange={false}
                     onClickDay={dayClickShowModalHandler}
