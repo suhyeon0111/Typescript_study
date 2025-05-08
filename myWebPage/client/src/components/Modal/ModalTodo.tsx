@@ -28,7 +28,7 @@ export default function ModalTodo({
                 {/* jsx에서는 date객체자체를 렌더링 할 수 없으므로 문자열로 변환하여 사용해야함 */}
                 <p>{strDay}</p>
                 <h2>📝 일정 추가</h2>
-                <ModalTodoList />
+                <ModalTodoList onDay={strDay} />
             </div>
         </div>
     )
