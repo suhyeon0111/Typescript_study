@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 interface ModalItemProps {
     id: string;
     text: string;
@@ -8,24 +9,25 @@ interface ModalItemProps {
     onClickCompleted: () => void;
 }
 
+const ListItem = styled.li`
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+`;
+
+const CompletedBtn = styled.button`
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+`;
+
 export default function ModalTodoItem({
     id,
     text,
     completed,
     onClickCompleted,
 }: ModalItemProps) {
-    const ListItem = styled.li`
-        list-style: none;
-        display: flex;
-        align-items: center;
-        margin: 10px 0;
-    `;
-
-    const CompletedBtn = styled.button`
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-    `;
 
     return (
         <ListItem key={id}>
