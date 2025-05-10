@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 
@@ -21,6 +21,9 @@ export default function ModalTodo({
         navigate('/');
     }
 
+    useEffect(() => {
+        console.log("strDay>>>> ", strDay);
+    })
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
