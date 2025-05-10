@@ -7,11 +7,10 @@ import Logo from '../../components/common/Logo';
 import ModalTodo from "../../components/Modal/ModalTodo";
 import { fetchSchedulesByMonth } from "../../api/schedule";
 
-type Value = Date | null;
 
 export default function CalendarPage() {
     const [schedules, setSchedules] = useState<string[]>([]);  // 데이터 저장
-    const [date, setDate] = useState<Value>(new Date());
+    const [date, setDate] = useState<Date>(new Date());
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);  // 모달창 열림 여부 확인
 
     // 데이터 초기 받아옴
@@ -32,8 +31,12 @@ export default function CalendarPage() {
 
     // 날짜를 'YYYY-MM-DD' 형식으로 포맷
     const formatDate = (date: Date) => {
-        return date.toISOString().split('T')[0];
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     };
+
 
     // 일정 클릭 함수
     const dayClickShowModalHandler = () => {
@@ -45,7 +48,7 @@ export default function CalendarPage() {
             <Logo />
             <div className="calendarContainer">
                 <Calendar
-                    onChange={(value: Value) => setDate(value)}
+                    onChange={(date) => setDate(date)}
                     value={date}
                     selectRange={false}
                     onClickDay={dayClickShowModalHandler}
