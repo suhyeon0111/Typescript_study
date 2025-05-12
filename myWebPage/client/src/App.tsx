@@ -22,7 +22,7 @@ function App() {
       <ThemeProvider theme={themeMode ? darkTheme : lightTheme} >
         <GlobalStyle />
         <Routes>
-          <Route path='/' element={<MainPage />} />
+          <Route path='/main' element={<MainPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/mypage' element={<MyPage />} />

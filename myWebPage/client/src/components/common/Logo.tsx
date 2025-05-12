@@ -26,7 +26,7 @@ export default function Logo() {
     const [isOpen, setIsOpen] = useState<boolean>(false);  // 네비게이션바 상태 관리
 
     const handlerClickLogo = () => {
-        navigate('/');
+        navigate('/main');
     }
 
     // 햄버거 아이콘 클릭 시 네비게이션 바 열고 닫기
@@ -35,7 +35,7 @@ export default function Logo() {
     }
 
     const goHomeHandler = () => {
-        navigate('/');
+        navigate('/main');
     }
 
     const goUserHandler = () => {
