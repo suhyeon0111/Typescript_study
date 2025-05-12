@@ -51,7 +51,13 @@ const deleteTodo = (req, res) => {
     // 해당 날짜에서 id가 일치하지 않는 항목만 남김
     const updatedTodos = data[date].filter((todo) => todo.id !== id);
 
-    data[date] = updatedTodos;
+    if (updatedTodos.length === 0) {
+      // 배열이 비면 날짜(key) 자체 삭제
+      delete data[date];
+    } else {
+      data[date] = updatedTodos;
+    }
+
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 
     res.status(200).json({ message: "Todo deleted" });
