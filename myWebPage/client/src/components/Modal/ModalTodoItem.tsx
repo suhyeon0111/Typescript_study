@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-
+import { TodoItem } from "./ModalTodoList";
 
 interface ModalItemProps {
     id: string;
     text: string;
     completed: boolean;
-    onClickCompleted: () => void;
+    onClickCompleted: (updateModalTodoItem: TodoItem) => void;
 }
 
 const ListItem = styled.li`
@@ -29,10 +29,19 @@ export default function ModalTodoItem({
     completed,
     onClickCompleted,
 }: ModalItemProps) {
+    // 완료 버튼 클릭 함수
+    const handleCompleted = () => {
+        const updatedItem = {
+            id: id,
+            text: text,
+            completed: !completed,
+        }
+        onClickCompleted(updatedItem);
+    }
 
     return (
         <ListItem key={id}>
-            <CompletedBtn onClick={onClickCompleted}>
+            <CompletedBtn onClick={handleCompleted}>
                 {completed ? "✅" : "⬜"}
             </CompletedBtn>
             <p style={{ textDecoration: completed ? "line-through" : "none" }}>
