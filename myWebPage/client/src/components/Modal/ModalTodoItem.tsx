@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { TodoItem } from "./ModalTodoList";
 
 
+
 interface ModalItemProps {
-    id: string;
+    key: number;
+    id: number;
     text: string;
     completed: boolean;
     onClickCompleted(updateModalTodoItem: TodoItem): void;
+
 }
 
 const ListItem = styled.li`
@@ -24,12 +27,12 @@ const CompletedBtn = styled.button`
 `;
 
 export default function ModalTodoItem({
+    key,
     id,
     text,
     completed,
     onClickCompleted,
 }: ModalItemProps) {
-
     // 완료 버튼 클릭 함수
     const handleCompleted = () => {
         const updatedItem = {
@@ -39,6 +42,7 @@ export default function ModalTodoItem({
         }
         onClickCompleted(updatedItem);
     }
+    
     return (
         <ListItem>
             <CompletedBtn onClick={handleCompleted}>

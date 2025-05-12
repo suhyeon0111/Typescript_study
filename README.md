@@ -1,22 +1,31 @@
 # Todo 사이트 만들기 (React기반 typescript사용)
 
 # 📌MainPage
+
 <img width="9000" alt="스크린샷 2025-04-22 오후 11 57 16" src="https://github.com/user-attachments/assets/50ec2ba2-960c-48a6-b06e-a16b73e9c619" />
 
 # 📌UserPage
+
 <img width="900" alt="image" src="https://github.com/user-attachments/assets/cb1e5a43-1c88-4f00-901c-c3f7ae3047fa" />
 
 # 📌CalendarPage
+
 <img width="900" alt="image" src="https://github.com/user-attachments/assets/d4840102-3ca3-47f9-8ee1-1ec2b32526a3" />
+
+1. 달력 클릭 -> 원하는 날짜 조회 기능
+2. 날짜 클릭 -> 모달창으로 해당 날에 맞는 todo리스트 간편 조회 기능
+3. 모달창 => 완료/미완료 체크 기능, 사용자 편의성을 위해 초반엔 4개 리스트만 조회 (더보기 버튼으로 추가 조회 기능), 확장 아이콘 클릭 시 해당 날에 맞는 세부사항 편집 페이지로 이동
 
 ## ✅기능
 
-* 다크모드 / 라이트모드 기능
+- 다크모드 / 라이트모드 기능
+
   <img width="900" alt="image" src="https://github.com/user-attachments/assets/cf587918-84a4-477d-ba82-74f38ffb31b8" />
 
-* 완료 / 미완료 체크 표시
+- 완료 / 미완료 체크 표시
+
   <img width="300" alt="image" src="https://github.com/user-attachments/assets/a0ab2d23-d0f2-4ae9-9a22-7bc758fa89e9" />
 
-* 페이지네이션 방식
- <img width="300" alt="image" src="https://github.com/user-attachments/assets/0fafed6a-cfeb-41f6-9d80-2d1d4aae7b88" />
+- 페이지네이션 방식
 
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/0fafed6a-cfeb-41f6-9d80-2d1d4aae7b88" />
