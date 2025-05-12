@@ -4,7 +4,11 @@ import React from "react";
 export default function Today({ Tday }: { Tday: string }) {
     return (
         <>
-            <p>{Tday}</p>
+            <h2
+                style={{
+                    "position": "absolute"
+                    , "top": "20px"
+                }}>{Tday}</h2>
         </>
     );
 }

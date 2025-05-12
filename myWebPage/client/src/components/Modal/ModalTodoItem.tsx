@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { ModalTList } from "./ModalTodoList";
 
 
 interface ModalItemProps {
-    id: string;
+    key: number;
+    id: number;
     text: string;
     completed: boolean;
-    onClickCompleted: () => void;
+    onClickCompleted(updateModalTodoItem: ModalTList): void;
 }
 
 const ListItem = styled.li`
@@ -24,20 +26,23 @@ const CompletedBtn = styled.button`
 
 
 export default function ModalTodoItem({
+    key,
     id,
     text,
     completed,
     onClickCompleted,
 }: ModalItemProps) {
 
+
     return (
-        <ListItem key={id}>
-            <CompletedBtn onClick={onClickCompleted}>
-                {completed ? "✅" : "⬜"}
+        <ListItem>
+            <CompletedBtn onClick={handleCompleted}>
+                {completed ? "✅" : " "}
             </CompletedBtn>
-            <p style={{ textDecoration: completed ? "line-through" : "none" }}>
-                {text}
-            </p>
+            <p style={{
+                textDecoration: completed ? "line-through" : undefined,
+                marginTop: "25px"
+            }}> {text}</p>
         </ListItem>
-    );
+    )
 }
