@@ -18,7 +18,7 @@ export default function ModalTodo({
 
     const navigate = useNavigate();
     const GoMainPageHandler = () => {
-        navigate('/');
+        navigate(`/main?date=${strDay}`);
     }
 
     useEffect(() => {

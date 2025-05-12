@@ -22,8 +22,21 @@ function MainPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const userName = location.state?.userName || "Guest";
-
   const today = new Date();  // 현재 날짜
+
+  const params = new URLSearchParams(location.search);
+  const dateFromQuery = params.get("date");
+
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  useEffect(() => {
+    if (dateFromQuery) {
+      setSelectedDate(new Date(dateFromQuery));
+    } else {
+      setSelectedDate(new Date());  // 오늘 날짜
+    }
+  }, [dateFromQuery]);
+
   // 날짜 커스텀
   const customDay = `${today?.getFullYear()}-${String(today?.getMonth() + 1).padStart(2, '0')}-${String(today?.getDate()).padStart(2, '0')}`;
 
