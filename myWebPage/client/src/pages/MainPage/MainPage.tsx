@@ -21,11 +21,9 @@ const itemsPerPage = 6; // 한 페이지에 표시할 아이템 개수
 function MainPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const userName = location.state?.userName || "Guest";
-  const today = new Date();  // 현재 날짜
-
   const params = new URLSearchParams(location.search);
   const dateFromQuery = params.get("date");
+  const userName = location.state?.userName || "Guest";
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -38,7 +36,7 @@ function MainPage() {
   }, [dateFromQuery]);
 
   // 날짜 커스텀
-  const customDay = `${today?.getFullYear()}-${String(today?.getMonth() + 1).padStart(2, '0')}-${String(today?.getDate()).padStart(2, '0')}`;
+  const customDay = `${selectedDate?.getFullYear()}-${String(selectedDate?.getMonth() + 1).padStart(2, '0')}-${String(selectedDate?.getDate()).padStart(2, '0')}`;
 
   // 데이터 리스트
   const [todoList, setTodoList] = useState<TList[]>([
