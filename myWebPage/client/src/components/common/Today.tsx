@@ -8,8 +8,3 @@ export default function Today({ Tday }: { Tday: string }) {
         </>
     );
 }
-{/* <h2
-    style={{
-        "position": "absolute"
-        , "top": "20px"
-    }}>{Tday}</h2> */}
