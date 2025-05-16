@@ -67,7 +67,7 @@ export default function Logo() {
             </div>
 
             <LogoButton open={isOpen} onClick={handlerClickLogo} >
-                <h1>Todo</h1>
+                <h1 className="text-5xl font-bold">Todo</h1>
             </LogoButton>
         </>
     )
