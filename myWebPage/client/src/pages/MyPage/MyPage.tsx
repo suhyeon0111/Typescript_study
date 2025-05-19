@@ -36,9 +36,9 @@ export default function MyPage() {
                         <h2>{userName}</h2>
                     </div>
                     {!isLogin ? (
-                        <button onClick={onClickLogin}>로그인</button>
+                        <button className="bg-white h-10" onClick={onClickLogin}>로그인</button>
                     ) : (
-                        <button onClick={onClickLogout}>로그아웃</button>
+                        <button className="bg-white h-10" onClick={onClickLogout}>로그아웃</button>
                     )}
                 </div>
             </div>
