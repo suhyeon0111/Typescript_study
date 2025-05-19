@@ -41,6 +41,7 @@
 .todoUpdateContainer > button {
     margin-bottom: 10px;
     width: 80px;
+    height: 40px;
     background-color: #F9F5E6;
     color: #6DAEDB;
     font-weight: 1000;

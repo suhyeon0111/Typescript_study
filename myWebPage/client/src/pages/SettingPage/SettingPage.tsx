@@ -23,9 +23,6 @@ export default function SettingPage() {
                         ) : (
                             <button> <CiLight />라이트모드</button>
                             )} */}
-                        <div className="min-h-screen flex items-center justify-center bg-green-100">
-                            <h1 className="text-3xl font-bold text-blue-500">Tailwind 잘 작동 중!</h1>
-                        </div>
                     </div>
                 </div>
             </div>
