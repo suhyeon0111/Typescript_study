@@ -140,11 +140,12 @@ function MainPage() {
         </div>
         {/* 페이지 버튼 */}
         <div className='PageContainer'>
-          <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          <button className='bg-white'
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
             이전
           </button>
           <span>{currentPage} / {totalPages || 1} </span>
-          <button
+          <button className='bg-white'
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}>
             다음
